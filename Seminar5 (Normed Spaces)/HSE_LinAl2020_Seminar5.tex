@@ -1,0 +1,833 @@
+\documentclass[9pt]{beamer}
+
+
+
+
+\usepackage{beamerthemesplit}
+\usetheme{Boadilla}
+\usecolortheme{orchid}
+
+
+
+
+
+ % \usepackage[cp866]{inputenc}                %%% Є®¤Ёа®ўЄ  DOS
+  \usepackage[cp1251]{inputenc}
+%  \usepackage[T2A]{fontenc}                %%% ???
+%\usepackage[english,russian]{babel}
+%\usepackage[russian]{babel}
+ \usepackage[OT1]{fontenc}
+%\usepackage[english]{babel}
+\usepackage[russian]{babel}
+
+\usepackage{amssymb,latexsym, amsmath, mathdots}
+
+\usepackage{amscd}
+\usepackage{multirow}
+\usepackage{comment}
+
+\usepackage{epstopdf}
+
+
+
+%\usepackage[table]{xcolor} %colored cells
+
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark} %arrows in tables
+
+
+\usepackage{mnsymbol} % udots in matrices
+
+
+ \usepackage{pgfpages}
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen=bottom}
+%% \setbeameroption{show notes on second screen}
+
+%\setbeamercolor{alerted text}{fg=red!80!black}
+
+
+% \setbeamercolor{alerted text}{fg=blue!50!green}
+% \setbeamercolor{fortheorem}{bg=blue!15!white}
+% \setbeamercolor{EMPF}{bg=blue!25!white}
+% \setbeamercolor{EMPF2}{bg=blue!35!white}
+
+%\setbeamersize{text margin left=5.mm, text margin right=5.mm}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+
+%\def\emphbox#1#2#3{\begin{beamercolorbox}[wd=#2, ht=#1, center, colsep=1.mm]{EMPF} #3 \end{beamercolorbox}}
+
+%---------------------------------------------------------------------------------------------------------------------------
+
+
+%\advance\leftskip-5.mm
+
+
+
+%***************************************************************************************************************************
+
+\theoremstyle{theorem}
+\newtheorem{mytheorem}[theorem]{Теорема}
+\newtheorem{mylemma}[theorem]{Лемма}
+\newtheorem{mycorollary}[theorem]{Следствие}
+
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{assertion}[theorem]{Утверждение}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{assumption}[theorem]{Предположение}
+
+\newtheorem{convention}[theorem]{Договорённость}
+\newtheorem{question}[theorem]{Вопрос}
+%\newtheorem{mydefinition}{mydefinition}
+
+\theoremstyle{definition}
+\newtheorem{mydefinition}[theorem]{Определение}
+\newtheorem{myexample}[theorem]{Пример}
+
+
+
+%***************************************************************************************************************************
+
+\chardef\No=194
+\newcommand{\bd}{{\rm bd}}
+\newcommand{\cl}{{\rm cl}}
+\newcommand{\ind}{{\rm ind}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\inj}{{\sl in}}
+\newcommand{\pr}{{\rm pr}}
+\newcommand{\st}{{\rm St}}
+
+
+\DeclareMathOperator{\sgrad}{sgrad}
+
+\DeclareMathOperator{\cnt}{const}
+
+\DeclareMathOperator{\Aut}{Aut}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+
+\DeclareMathOperator{\Int}{Int}
+
+
+\DeclareMathOperator{\tr}{tr}
+
+\DeclareMathOperator{\Mat}{Mat}
+
+
+
+
+
+
+
+%****************************************************************************
+\newcommand{\Ker}{\mathrm{Ker}\,\,}
+\newcommand{\Ann}{\mathrm{Ann}\,\,}
+
+\newcommand{\Imm}{\mathrm{Im}\,\,}
+
+\newcommand{\rk}{\mathrm{rk}\,\,}
+
+\newcommand{\const}{\mathrm{const}}
+
+
+
+\DeclareMathOperator{\Pen}{\mathcal{P}}
+
+
+\DeclareMathOperator{\Core}{K}
+
+
+\DeclareMathOperator{\BLG}{\operatorname{BLG}}
+
+\DeclareMathOperator{\AutBP}{\operatorname{Aut}(V, \mathcal{P})}
+
+
+\def\minus{\hbox{-}}   %Sign of minus in big matrices
+
+\usepackage{multirow}  %Columns spanning multiple rows
+
+\usepackage[normalem]{ulem} %underline that can break lines
+
+%****************************************************************************
+
+
+
+\title% [] (optional, only for long titles)
+{МАГОЛЕГО\\ Линейная алгебра в приложениях \\ Семинар 5}
+%\subtitle{}
+\author [Д.\,И.~Пионтковский, И. \,К.~Козлов] %(optional, for multiple authors)
+{Д.\,И.~Пионтковский, И. \,К.~Козлов \\ {\footnotesize(\textit{ВШЭ})}}
+
+
+\date % [](optional)
+{19 февраля 2021}
+%\subject{Mathematics}
+
+
+
+
+
+
+
+
+\usepackage{hyperref}
+\hypersetup{unicode=true}
+
+
+
+\begin{document}
+
+%\includeonlyframes{}
+\frame{\titlepage}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Исправление}
+%----------------------------------------------------------
+
+
+
+{\color{blue} Эрмитова интерполяция}. Многочлен $H$, который в заданных точках $z_i$ совпадает с значениями исходной функции и её первых $m_i$ производных:
+
+
+\vspace{5mm}
+
+\[ H^{(j)} = f^{(j)}(z_i), \qquad i =0, \dots, k, \qquad j = 0, \dots m_i.\]
+
+\vspace{5mm}
+
+\begin{block}{} Такой многочлен степени не более $m_0 + \dots m_i -1$ существует и единственен. \end{block}
+
+\vspace{5mm}
+
+{\color{red} Число производных в каждой точке --- своё.}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+\section{Решение Задач к Семинару 4.}
+
+
+
+\begin{frame}[plain]\frametitle{Решение Задач к Семинару 4} \tableofcontents[currentsection]\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}[plain]\frametitle{Решение Задач к Семинару 4} \tableofcontents[currentsection]\end{frame}
+
+
+
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+{\color{blue} Метрическое пространство} --- это пара $(X,\;d)$, состоящая из некоторого множества $X$ и {\color{blue} функции расстояния} \[ \rho: X \times X \to \mathbb{R}_{\geq 0},\]  удовлетворяющей следующим свойствам
+
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+\item $\rho(x, y) = 0 \quad \Leftrightarrow \quad x = y$ (аксиома тождества).
+
+
+
+\vspace{5mm}
+
+\item ${\displaystyle \rho(x,y)=\rho(y,x)}$ (аксиома симметрии).
+
+
+\vspace{5mm}
+
+\item ${\displaystyle \rho(x,z)\leqslant \rho(x,y)+\rho(y,z)}$ (неравенство треугольника).
+
+
+\end{enumerate}
+
+\vspace{5mm}
+
+Функцию расстояния также называют {\color{blue} метрикой}.
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+\textbf{Задача} Существует ли убывающая последовательность непустых замкнутых огранченных множеств с пустым пересечением (в произвольном метрическом пространстве).  
+
+
+
+
+
+\vspace{5mm}
+
+\textbf{Решение} Да. Рассмотрим рациональные числа $\mathbb{Q}$ и в нём отрезки: \[ \left[\sqrt{2} - \frac{1}{n},  \sqrt{2} + \frac{1}{n} \right] \cap \mathbb{Q}. \] 
+
+Тогда \[ \bigcap_{n=1}^{\infty}   \left[\sqrt{2} - \frac{1}{n},  \sqrt{2} + \frac{1}{n} \right] \bigcap \mathbb{Q} = \emptyset.\] 
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+{\color{blue} Норма} в векторном пространстве $V$  над полем $\mathbb{R}$ или $\mathbb{C}$ --- это неотрицательная вещественное-значная функция \[ p\colon V\to \mathbb {R}_{\geq 0} ,\] обладающая следующими свойствами: 
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+\item  $p(x)=0\Leftrightarrow x=0;$
+
+
+\vspace{5mm}
+
+\item $\forall \alpha \in \mathbb {C} ,\forall x\in V$, \[p(\alpha \,x)=|\alpha |p(x),\]
+
+
+
+\vspace{5mm}
+
+\item  Неравенство треугольника: $ \forall x,y\in V$ \[  p(x+y)\leqslant p(x)+p(y).\] 
+
+
+\end{enumerate}
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+\begin{block}{Теорема (Минковского)} Множество $B \subset \mathbb{R}^n$ является единичным шаром $B^{\nu}_1(0)$ с центром в нуле относительно некоторой нормы $\nu$ тогда и только тогда, когда $B$:
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+\item замкнуто,
+
+\vspace{5mm}
+
+\item ограничено \[ B\subset B_{R}(0) , \]
+
+
+
+\item содержит окрестность нуля \[ B_{\varepsilon}(0) \subset B, \] 
+
+
+
+\item выпукло \[ u, v \in B \qquad \Rightarrow \qquad [u, v] \subset B,\]
+
+\item центрально симметрично \[ x \in B \qquad \Leftrightarrow \qquad - x  \in B. \]
+
+\end{enumerate}
+
+\end{block}
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+\textbf{Задача}. Пусть \[B(x, y) = \left\{x^2 + axy + 4y^2 \leq 1 \right\}.\] При каких $a$ на множестве $\mathbb{R}^2$ существует норма $\nu$ такая, что $B(x, y)$ --- единичный шар относительно неё? 
+
+Найдите в этом случае $\nu\left( \begin{matrix} 2 \\ 1 \end{matrix} \right)$. 
+
+\vspace{5mm}
+
+\textbf{Решение}. Приведём квадратичную форму к каноническому виду методом Лагранжа (выделим полные квадраты) \[ x^2 + axy + 4y^2 = \left( x + \frac{a}{2} y\right)^2 + \left( 4 - \frac{a^2}{4} \right) y^2.\]
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+
+Как выглядит множество \[B(x, y) = \left\{ \left( x + \frac{a}{2} y\right)^2 + \left( 4 - \frac{a^2}{4} \right) y^2 \leq 1 \right\}\]
+
+
+\begin{figure}[h!]
+\center{\includegraphics[height=0.5\textheight]{Pic/MyConic}}
+\end{figure}
+
+
+
+%Найдите в этом случае $\nu\left( \begin{matrix} 2 \\ 1 \end{matrix} \right)$. 
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+При $\left|a\right| \geq 4$ множество $B(x, y)$ неограниченно --- поэтому нормы $\nu$ НЕ существует. 
+
+\vspace{5mm}
+
+При $\left|a\right| < 4$ множество $B(x, y)$ --- это эллипс (с внутренностью). Эллипс (кривая) получается из окружности линейной заменой координат. 
+
+
+
+
+\vspace{5mm}
+
+При линейной замене координат норма переходит в норму (её определение не зависит от координат). Для окружности норма $\nu$ --- это евклидова метрика.
+
+\vspace{5mm}
+
+\textbf{Вывод}.  $B(x, y)$ задаёт норму $\nu$ при $\left|a\right| < 4$.
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+Ничего удивительного: положительно определённая квадратичная форма \[ q(x) = x^T Q x\] задаёт евклидову метрику. 
+
+\vspace{5mm}
+
+В данном случае \[  x^2 + axy + 4y^2 = \left( \begin{matrix}  x & y \end{matrix} \right) \left( \begin{matrix} 1 & \displaystyle \frac{a}{2} \\[6pt] \displaystyle \frac{a}{2} & 4  \end{matrix} \right)\left( \begin{matrix}  x \\ y \end{matrix} \right).\]
+
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+\textbf{Задача}.  Вычислить  $\nu(\left( \begin{matrix} 2& 1 \end{matrix} \right))$.
+
+\vspace{5mm}
+
+\textbf{Решение -1} (именно для этой метрики).
+
+\[\nu\left( \begin{matrix} 2 \\ 1 \end{matrix} \right) = \sqrt{ \left( \begin{matrix}  2 & 1\end{matrix} \right) \left( \begin{matrix} 1 & \displaystyle \frac{a}{2} \\[6pt] \displaystyle \frac{a}{2} & 4  \end{matrix} \right)\left( \begin{matrix}  2 \\ 1 \end{matrix} \right)} =  \sqrt{(2)^2 + a \cdot 2 \cdot 1 + 4 \cdot 1^2} = \sqrt{2a + 8}.  \]
+
+\vspace{5mm}
+
+\textbf{Задача решена}.
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+\textbf{Задача}.  Вычислить  $\nu(\left( \begin{matrix} 2& 1 \end{matrix} \right))$.
+
+\vspace{5mm}
+
+\textbf{Решение -2} (для любой метрики).
+
+Найдём при каких $\lambda >0$ вектор $\lambda v$ попадает в единичный шар. 
+
+\[\lambda^2(2^2 + a \cdot 2 + 4 \cdot 1^2) \leq 1 \qquad \Rightarrow \qquad \lambda \leq \frac{1}{\sqrt{2a +8}}.\]
+
+\vspace{5mm}
+
+С другой стороны, по определению нормы \[ \nu(\lambda v) = \left| \lambda\right| \nu(v), \] поэтому вектор $\lambda v$ попадает в единичный шар при $\lambda \leq \frac{1}{\nu (v)}$.
+
+
+\vspace{5mm}
+
+Поэтому  $\nu(\left( \begin{matrix} 2& 1 \end{matrix} \right)) = \sqrt{2a +8}$.
+
+\textbf{Задача решена}.
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+\section{Семинар 5.}
+
+
+
+\begin{frame}[plain]\frametitle{Семинар 5} \tableofcontents[currentsection]\end{frame}
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+\textbf{Q:} Как лучшее всего приблизить вектор $v$ вектором из подпространства $u \in \subset U$?
+
+
+\vspace{5mm}
+
+
+\textbf{A:} Ортогонально спроектировать \[ u = \operatorname{pr}_U v. \] 
+
+\begin{figure}[h!]
+\center{\includegraphics[width=0.75\textwidth]{Pic/Projection}}
+\caption{Проекция на подпространство} \label{Fig:}
+\end{figure}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+Формула для ортогональной проекции $\operatorname{pr} v$ получается из условия \[ (v - \operatorname{pr} v, u_i) = 0,\] где $u_1, \dots, u_k$ --- базис $U$. 
+
+\vspace{5mm}
+
+
+
+\begin{itemize}
+
+\item Случай 1. Проекция $v$ на прямую $ \langle u \rangle$.
+\[ \mathrm {pr} _{\mathbf {u} }\,(\mathbf {v} )={\langle \mathbf {u} ,\mathbf {v} \rangle \over \langle \mathbf {u} ,\mathbf {u} \rangle }{\mathbf {u}} \]
+
+\vspace{5mm}
+
+Здесь $\operatorname{pr}_u v = \lambda u$. Находим $\lambda$ из условия \[ (v- \lambda u,  u) = 0.\] 
+
+
+\end{itemize} 
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+\begin{itemize}
+
+\item Случай 2. Пусть $u_1, \dots, u_k$ --- ортонормированный базис $U$: \[ (u_i, u_j) = \begin{cases} 1, \qquad i \not = j, \\ 0, \qquad i = j.\end{cases} \] 
+
+
+
+
+Аналогично случаю 1: \[ \pr_U v = \lambda_1 u_1 + \dots + \lambda_k u_k, \] где \[ \lambda_j = {\langle \mathbf {u}_j ,\mathbf {v} \rangle \over \langle \mathbf {u}_j ,\mathbf {u}_j \rangle }.\]
+
+\end{itemize}
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+\begin{itemize}
+
+\item Общий случай. Пусть $u_1, \dots, u_k$ --- произвольный базис $U$. Ортогональная проекция \[ \pr_U v = \lambda_1 u_1 + \dots + \lambda_k u_k, \] находится из условий \[ \begin{cases} ( \pr_U v, u_1) = 0  \\  \dots \\ ( \pr_U v, u_k) = 0. \end{cases}  \]
+
+\vspace{5mm}
+
+
+  Коэффициенты $\lambda_i$ находится из СЛУ: \[ \left( \begin{matrix} (u_1, u_1) & \dots & (u_1, u_k)\\ \dots & \dots & \dots \\ (u_k, u_1)   & \dots & (u_k, u_k)  \end{matrix}  \right)  
+%
+\left( \begin{matrix}\lambda_1  \\  \dots \\ \lambda_k \end{matrix}  \right) = 
+ \left( \begin{matrix} (v, u_1) \\ \dots \\ (v, u_k) \end{matrix}  \right).
+ \] 
+
+\end{itemize}
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+Рассмотрим пространство непрерывных функций на отрезке $C[-1, 1]$ .
+
+\vspace{5mm}
+
+Примеры скалярных произведений: 
+
+\vspace{5mm}
+
+
+\begin{itemize}
+
+\item $\displaystyle \left\langle u,v\right\rangle =\int _{-1}^{1}u(x)v(x)dx$.
+
+\vspace{5mm}
+
+\item $\displaystyle  \left\langle u,v\right\rangle =\int _{-1}^{1}\frac{u(x)v(x)}{\sqrt{1-x^2}}dx$.
+
+\end{itemize}
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+Строим ортогональную систему многочленов для скалярного произведения \[\left\langle u,v\right\rangle =\int _{-1}^{1}u(x)v(x)dx.\] Получаем {\color{blue} многочлены Лежандра}  \[ (P_m, P_n) = 0, \qquad m \not = n, \] 
+
+\[ (P_n, P_n) = \frac{2}{2n+1}. \]
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+\textbf{Пример.} Несколько первых многочленов Лежандра:
+
+
+\begin{align*} P_0(x) = 1  \\
+%
+P_1(x) = x  \\
+%
+P_2(x) = {\tfrac {1}{2}}\left(3x^{2}-1\right)  \\
+%
+P_3(x) ={\tfrac {1}{8}}\left(35x^{4}-30x^{2}+3\right)  \\
+%
+P_4(x) = {\tfrac {1}{8}}\left(63x^{5}-70x^{3}+15x\right).
+\end{align*}
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+
+
+\textbf{Задача} Найти $\alpha_0, \alpha_1, \alpha_2$ на $[-1, 1]$: \[\left\| f - \sum_{k=0}^2 \alpha_k P_k(x) \right\| \to \min,\] где $P_k(x) $ --- многочлены Лежандра. Функция \[ f(x) = x^3.\]
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+Какая линейная комбинация векторов  $\sum\alpha_k P_k(x)$ ближе всего к вектору $f$? Ортогональная проекция $f$!
+
+\[ \alpha_k = \frac{(f, P_k(x))}{(P_k(x), P_k(x))}. \] 
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+Находим $\alpha_0$. Здесь $P_0(x) = 1$. Поэтому
+\[ \alpha_0 = \frac{(f, P_0(x))}{(P_0(x), P_0(x))}  = \int_{-1}^1 x^3  dx =  0. \] 
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+Находим $\alpha_1$. Здесь $P_1(x) = x$. Поэтому \[ (P_1(x), P_1(x)) = \frac{2}{3}\]
+\[ \alpha_1 = \frac{(f, P_1(x))}{(P_1(x), P_1(x))}  = \frac{3}{2} \int_{-1}^1 x^4  dx =\frac{3}{5}. \] 
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+Находим $\alpha_2$. Здесь $P_2(x) = \frac{3x^2-1}{2}$. Поэтому \[ (P_2(x), P_2(x)) = \frac{2}{5}\]
+\begin{gather*} \alpha_2 = \frac{(f, P_2(x))}{(P_2(x), P_2(x))}  = \frac{5}{2} \int_{-1}^1  \frac{3x^2-1}{2} x^3 dx = 0. \end{gather*}
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+Ответ: \[  \alpha_0 = 0, \qquad   \alpha_1 = \frac{3}{5}, \qquad \alpha_2 =0.\] 
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 5}
+%----------------------------------------------------------
+
+
+Формула Родрига для {\color{blue} многочленов Лежандра}: \[P_{n}(x)={\frac {1}{2^{n}n!}}{\frac {d^{n}}{dx^{n}}}(x^{2}-1)^{n}.\]
+
+
+
+Это ортогональная\footnote{Не ортонормированная --- длина векторов не равна $1$.} система многочленов:
+
+\[ (P_m, P_n) = 0, \qquad m \not = n, \] 
+
+\[ (P_n, P_n) = \frac{2}{2n+1}. \]
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+\end{document}

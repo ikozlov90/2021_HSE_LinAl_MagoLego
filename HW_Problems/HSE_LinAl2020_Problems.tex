@@ -1,0 +1,701 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{cmap}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[cp1251]{inputenc}
+\usepackage{amscd}
+
+\usepackage{comment}
+
+
+\usepackage{xcolor}
+
+\usepackage{subcaption}
+
+
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+
+\frenchspacing \unitlength=1mm
+
+\tolerance = 3000
+
+\oddsidemargin=0.3cm \textwidth=15.5cm \topmargin=-1.7cm
+\textheight=690pt
+
+ 
+ 
+%-----------------------------------------------------------------------------
+
+  \newskip\prethm \prethm3.0pt plus1.3pt minus.4pt
+  \newskip\posthm \posthm2.7pt plus1.4pt minus.3pt
+  \newtheoremstyle{STATEMENT}%
+       {\prethm}{\posthm}{\itshape}{\parindent}{\scshape}%  {\bfseries}
+       {.}{.6em plus.2em minus.1em}{}
+  \newtheoremstyle{EXPLANATION}%
+       {\prethm}{\posthm}{}{\parindent}{\scshape}%  {\bfseries}
+       {.}{.6em plus.2em minus.1em}{}
+%
+\theoremstyle{STATEMENT}
+
+\newtheorem{theorem}{Теорема}
+\newtheorem{proposition}{Предложение}
+\newtheorem{lemma}{Лемма}
+\newtheorem{assertion}{Утверждение}
+\newtheorem{corollary}{Следствие}
+\newtheorem{claim}{Claim}
+
+\theoremstyle{EXPLANATION}
+\newtheorem{definition}{Определение}
+\newtheorem{remark}{Замечание}
+\newtheorem{question}{Вопрос}
+\newtheorem{problem}{Задача}[section]
+\newtheorem{example}{Пример}
+ 
+
+
+\begin{document}
+
+
+\title{Линейная алгебра в приложениях. \\ Задачи к семинарам}
+\date{}
+\maketitle
+
+\section{Псевдообратные матрицы}
+
+\subsection{Полезные формулы}
+
+\textbf{Псевдообратная матрица}:
+
+\begin{enumerate}
+
+
+\item Если $A$ --- квадратная и обратимая \[ A^{+} = A^{-1}\]
+
+
+\item Пусть столбцы $A$ линейно независимы. Тогда $A^* A$ обратима и \begin{equation} A^+ = (A^* A)^{-1} A^*.\end{equation}
+
+
+\item Пусть строчки $A$ линейно независимы. Тогда $AA^*$ обратима и \begin{equation} A^+ = A^*(A A^*)^{-1}.\end{equation}
+
+
+\item Пусть $A$ --- матрица размера $m \times n$ ранга $k$. Рассмотрим разложение полного ранга (скелетное разложение) \[A = FG,\] где  
+
+\begin{itemize}
+
+\item $F$ --- матрица размера $m \times k$ (столбцы линейно независимы)
+
+\item $G$ --- матрица размера $k \times n$ (строки линейно независимыми).
+
+\end{itemize}
+
+ Тогда:\[ A^+ = G^+F^+\] Иными словами, \[A^+ = G^*(GG^*)^{-1}(F^*F)^{-1}F^*.\]
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+\subsection{Упражнения к Семинару 1}
+
+\begin{problem} Вычислите \[ (\begin{matrix} 1 & 0 \end{matrix})^{+}.\]
+\end{problem}
+
+\begin{problem} Вычислите \[ \left(\begin{matrix} 0 \\ 1 \\ 2 \\ 3 \end{matrix}\right)^{+}.\]
+\end{problem}
+
+\begin{problem} Вычислите \[ \left(\begin{matrix} 3 & 2 & 1 & 0\end{matrix}\right)^{+}.\]
+\end{problem}
+
+\begin{problem} Вычислите \[ \left(\begin{matrix} 1 & 0 \\ -1 & 0 \\ -1 & 0 \\ 2 & 1 \end{matrix}\right)^{+}.\]
+\end{problem}
+
+\begin{problem} Вычислите \[ \left(\begin{matrix} 1 & 2 & 3 \\ 0 & -1 & -2 \end{matrix}\right)^{+}.\]
+\end{problem}
+
+\begin{problem}  Пусть $A$ --- произвольная $m \times n$ матрица. Преобразуем $A$ к каноническому виду (т.е. к приведённому ступенчатому виду по строкам) $B$. Пусть  $i_1, \dots, i_r$ --- номера столбцов $B$ с ведущими коэффициентами. Рассмотрим матрицы:
+
+
+
+\begin{itemize}
+
+\item $F$ составлена из столбцов $A$ с номерами $i_1, \dots, i_r$,
+
+
+
+\item $G$ составлена из ненулевых строк $B$.
+
+
+\end{itemize}
+
+
+Доказать, что  \[ A = FG,\] и что это разложение полного ранга (скелетное разложение) матрицы $A$.
+\end{problem}
+
+\begin{problem} Найти разложение полного ранга (скелетное разложение) \[\left( \begin{matrix} 1 & 1 & 1 \\ 2 & 2 & 2 \\ 3 & 3 & 3 \\ 1 & 2 & 3\end{matrix} \right) \] 
+\end{problem}
+
+
+\begin{problem} Вычислите \[\left( \begin{matrix} 1 & 0 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 1\end{matrix} \right)^{+}. \] 
+\end{problem}
+
+\begin{problem} Пусть $F_{ij}$ матрица размера $n \times n$ такая, что её элементы в $i$-той строке и $j$-том столбце равны $1$, а все остальные элементы равны $0$. Найти разложение полного ранга и псевдообратную матрицу. 
+\end{problem}
+
+
+
+\begin{problem} Докажите:
+
+\begin{enumerate}
+
+\item $\operatorname{Im}(A A^{+}) = \operatorname{Im}(A A^{*}) = \operatorname{Im}A$.
+
+\item $\operatorname{Ker}(A A^{+}) = \operatorname{Ker}(A A^{*}) = \operatorname{Ker}A^*$.
+
+\item $\operatorname{Im}A^{+} = \operatorname{Im}A^{*}$.
+
+\item $\operatorname{Ker}A^{+} = \operatorname{Ker}A^{*}$.
+
+
+\item $\operatorname{Im}A^{+} = \left(\operatorname{Ker}A\right)^{\perp}$.
+
+\item $\operatorname{Ker}A^{+} = \left(\operatorname{Im}A\right)^{\perp}$.
+
+
+\end{enumerate}
+\end{problem}
+
+
+
+
+
+\newpage
+
+\section{МНК и SVD разложение}
+
+
+\begin{problem} Найти решение наименьшей длины системы линейных уравнений
+\[\begin{cases} 2x + 3y + 2 z = 7, \\ 3x + 4y - z = 6.\end{cases} \] \end{problem}
+
+
+\begin{problem} Среди всех приближений решения следующей системы по методу наименьших квадратов найти решение наименьшей длины 
+\[\begin{cases} x - 3y + t = -1, \\ 2y -3z = -1, \\ x - 2y + z + t = 0,\\ x - 2z + t = 8.\end{cases} \] \end{problem}
+
+
+
+\begin{problem} Доказать утверждение о псевдообратной от произведения матриц. Если $B = AU$, где $U^* = U^{-1}$ --- унитарная матрица, а $A$ --- произвольная матрица порядка $n$, то \[ B^{+} = U^{+} A^{+} = U^* A^{+}.\] \end{problem}
+
+
+\begin{problem} Найти SVD для матрицы \[ A  = \left( \begin{matrix} 4 & -3i \\ -3i & 4\end{matrix} \right). \] \end{problem}
+
+
+
+\begin{problem} Найти SVD для матрицы \[ A  = \left( \begin{matrix} 6 & 3 & 0  \\ 6 & 3 & 0  \\ 2 & 5 & 4 \\ -2 & -5 & -4  \end{matrix} \right). \] \end{problem}
+
+\begin{problem} Найти псевдообратную матрицу $A^{+}$, используя  SVD: \[ A  = \left( \begin{matrix} 18 & 18 & 9  \\ 4 & -2 & -4  \\ 8 & -4 & -8 \\ 8 & -4 & -8  \end{matrix} \right). \] \end{problem}
+
+\begin{problem} Предсказать курс доллара: \[ \begin{array}{c|c|c|c|c|c} \text{дата} & 23.01 & 26.01  & 27.01  & 28.01  & 29.01  \\ \hline \text{курс} & 74.3615  & 74.8569 & 75.6354 & 75.0400 & 76.1854 \end{array}.\] \end{problem}
+
+
+\newpage
+
+\section{Аппроксимационные многочлены и сплайны}
+
+
+\begin{problem} Приблизить следующую функцию $y(x)$ многочленом второй степени по методу наименьших квадратов  \[ \begin{array}{c|c|c|c|c|c} x & -3 & -1 & 0 & 1 & 3\\ \hline y& -4 & -0.8 & 1.6 & 2.3 & 1.5\end{array}.\]  \end{problem}
+
+\begin{problem} Известно, что $f(x)$ --- многочлен третий степени такой, что \[ \begin{cases} f(1) = 2 \\ f(-1) = -3 \\ f(2) = 17 \\ f(-2) = -19.\end{cases} \] Найти $f(x)$.  \end{problem}
+
+\begin{problem} Найти многочлен $f(x)$ наименьшей степени, удовлетворяющий условиям: \[ \begin{cases} f(1) = -1 \\ f'(1) = 5 \\ f(0) = 0 \\ f'(0) = -1.\end{cases} \]  \end{problem}
+
+\begin{problem} Приблизить $\sin{x}$ сплайном $S(x)$ степени два с узлами $0, \frac{\pi}{2}, \pi$. Найти $S\left(\frac{\pi}{4}\right)$, $S\left(\frac{\pi}{3}\right)$.\end{problem}
+
+
+\begin{problem} На плоскости 100 точек, любые 4 из них лежат на параболе виде $y = ax^2 + bx +c$. Доказать, что тогда все 100 будут лежать на одной и той же параболе. \end{problem}
+
+
+\begin{problem} Доказать, что кривая Безье касается первого и последнего отрезка ломаной. \end{problem}
+
+\begin{problem} Построить кривую Безье: \begin{gather*} P_0(-1, -1) \\ P_1(1, 3) \\ P_2(2, 4) \\ P_1(7, -1) \end{gather*}\end{problem}
+
+
+
+\newpage
+
+\section{Метрики}
+
+
+\begin{problem} Будет ли метрикой на $\mathbb{R}$ функция $\rho(x, y)=$
+
+\begin{enumerate}
+
+\item $\left|x^2 -y^2\right|$,
+
+\item $\sin(x-y)$,
+
+\item $\left|e^x -e^y\right|$.
+
+\end{enumerate}  \end{problem}
+
+
+\begin{problem} Доказать, что шар в нормированном пространстве является выпуклым множеством. То есть доказать, что если $x, y$ принадлежат шару, то и весь отрезок $[x, y]$ принадлежит шару.  \end{problem}
+
+\begin{problem} Существует ли убывающая последовательность непустых замкнутых огранченных множеств с пустым пересечением (в произвольном метрическом пространстве).  \end{problem}
+
+
+\begin{problem} $B(x, y) = \left\{x^2 + axy + 4y^2 \leq 1 \right\}$. При каких $a$ на множестве $\mathbb{R}^2$ существует норма $\nu$ такая, что $B(x, y)$ --- единичный шар относительно неё? 
+
+Найдите в этом случае $\nu\left( \begin{matrix} 2 \\ 1 \end{matrix} \right)$. \end{problem}
+
+
+
+
+\newpage
+
+\section{Многочлены Лежандра}
+
+
+Многочлены Лежандра (формула Родрига): \[ P_k(x) = \frac{1}{2^k k!} \frac{d^k}{dx^k} \left(\left( x^2 -1\right)^k \right)^{(k)}, k=1, \dots,n\] 
+
+\begin{problem}
+
+\begin{enumerate}
+
+\item  Проверить ортогональность $P_2(x)$ и $P_3(x)$ относительно \[ \langle f, g \rangle = \int_{-1}^1 f(x) g(x) dx.\]
+
+\item Найти $\left\| P_n(x) \right\|$ 
+
+\end{enumerate} \end{problem}
+
+
+\begin{problem} Найти $\alpha_0, \alpha_1, \alpha_2$ на $[-1, 1]$: \[\left\| f - \sum_{k=0}2^2 \alpha_k P_k(x) \right\| \to \min.\] Функции:
+
+\begin{enumerate}
+
+\item $f_1 (x) = xe^{-x}$,
+
+\item $f_2 (x) = x^3$,
+
+\end{enumerate}
+
+\end{problem}
+
+
+
+\begin{problem} Выразить скалярное произведение через длину вектора в эрмитовом простанстве. \end{problem}
+
+
+
+
+
+
+\section{Многочлены Чебышёва}
+
+\subsection{Теория}
+
+\textbf{Многочлены Чебышёва 1го рода} $T_n(x)$ определяются рекуррентным соотношением: \[{\displaystyle {\begin{aligned}T_{0}(x)&=1\\T_{1}(x)&=x\\T_{n+1}(x)&=2x\,T_{n}(x)-T_{n-1}(x)~.\end{aligned}}}\]
+
+На отрезке $[-1, 1]$ они задаются формулой \[ {\displaystyle T_{n}(x)=\cos {\big (}n\arccos(x){\big )}}.\] 
+
+$T_n(x)$ --- это многочлен степени $n$ со старшим коэффициентом $2^{{n-1}}$, наименее отклоняющийся от нуля на отрезке $[-1, 1]$. 
+
+Многочлены Чебышёва $T_n(x)$ ортогональны относительно скалярного произведения \[ \langle f, g \rangle = \int_{-1}^1 \frac{f(x) g(x)}{\sqrt{1-x^2}} dx. \] А именно \[ \langle T_m, T_n \rangle = \begin{cases} 0, \qquad m \not = n, \\
+%
+\displaystyle \frac{\pi}{2}, \qquad m = n \not = 0, \\
+%
+\pi, \qquad m = n =0. 
+\end{cases}  \]  
+
+
+
+\textbf{Многочлены Чебышёва 2го рода} $T_n(x)$ определяются рекуррентным соотношением: \[{\displaystyle {\begin{aligned}U_{0}(x)&=1\\U_{1}(x)&=2x\\U_{n+1}(x)&=2x\,U_{n}(x)-U_{n-1}(x)~.\end{aligned}}}\]
+
+
+\subsection{Упражнения}
+
+%\begin{problem} Доказать, что \[ U_1(x) + U_3(x) + \dots + U_{2n-1} (x) = U_{n-1}(x) U_n(x).\] \end{problem}
+
+
+
+%\begin{problem} Доказать, что \[ U_0(x) + U_2(x) + \dots + U_{2n-2} (x) = U_{n-1}(x)^2.\] \end{problem}
+
+
+\begin{problem} \begin{enumerate}
+
+
+\textbf{Задача}. Введём на множестве многочленов $\mathbb{R}[x]_{< N}$ степени менее $N$ от одной переменной скалярное произведение \[ \langle f, g\rangle_N = \sum_{j=0}^{N-1} f(x_i) g(x_i),\] где $x_0, \dots, x_{N-1}$ --- нули многочлена Чебышёва степени $N$. Докажите, что многочлены Чебышёва $T_0, \dots, T_{N-1}$ ортогональны друг другу относительно этого скалярного произведения, причём \[ \langle T_j, T_j \rangle_N = \frac{N}{2}  \] при $j>0$ и $\langle T_0, T_0 \rangle_N = N$. 
+
+
+\item Пусть $f$ --- произвольная действительная функция. Предположим, что $P(x)$ --- такой многочлен степени менее $n$, что \[ P(x_m) = \sum_{j=0}^{n-1} \frac{\langle T_j, f\rangle_n}{\langle T_j, T_j\rangle_n}T_j(x_m) \] для всех $m=0, \dots, n-1$. Докажите, что $P(x)$ является интерполяционным многочленом Лагранжа функции $f$ с узлами в точках $x_0, \dots, x_{n-1}$.
+
+\end{enumerate} \end{problem}
+
+
+\subsubsection{Аппроксимация функций}
+
+\begin{problem} Построить многочлен степени $\leq 2$, аппроксимирующий  $f(x) = 2x^3 + x^2$ на отрезке $[1, 3]$ по норме $\max_{[1, 4]} |f(x)|$. \end{problem}
+
+
+
+\begin{problem} Построить многочлен степени $\leq 2$, аппроксимирующий $f= x^3$ на отрезке $[0, 2]$ по норме \[ |h| = \int_0^2 | h(x)| dx. \] \end{problem}
+
+
+
+\begin{problem} Для $f(x) = \sqrt{x}$ найти наилучшее линейное приближение на отрезке $[1, 64]$ в норме $\max_{[1, 4]} |f(x)|$. \end{problem}
+
+\textit{Указание:} Это задача на альтернанс Чебышёва.
+
+
+
+\section{Матричные нормы}
+
+\begin{problem}  Докажите, что векторной норме $\left|\bar{x} \right|_{\infty}$ соответствует индуцированная матричная норма $\left|M\right\|_{\infty}$. \end{problem}
+
+
+\begin{problem}  Докажите, что векторной норме $\left|\bar{x} \right|_2$ соответствует индуцированная матричная норма $\sigma(M)$. \end{problem}
+
+
+
+\begin{problem}  Является ли матричной нормой \[ f(A) = \max_{1 \leq i, j \leq n} \left| a_{ij} \right|.\] \end{problem}
+
+
+\begin{problem}  Докажите, что  \[ A^{-1} \geq \frac{\left\| E \right\| }{\left\| A\right\|}.\] \end{problem}
+
+\begin{problem}  Найти все нормы $\left\| A\right\|_{\infty}$, $\left\| A\right\|_{1}$, $\sigma(A)$ для матрицы \[\left( \begin{matrix} 2 & 0 & 0 \\ 2 & 1 & 0 \\ 0 & -2 & 0 \end{matrix} \right). \] \end{problem}
+
+\begin{problem}  Найти $x, y,z, t$ для матрицы \[ A = \left( \begin{matrix} 1 & 2 \\ 3 & 4\end{matrix}  \right). \] Здесь слева изображена единичная сфера для метрики. В первых двух случаях нужно найти диаметр у образа единичный сферы (максимальное расстояние между противоположными точками). \end{problem}
+
+
+\begin{figure}[h!]
+\center{\includegraphics[height=0.5\textheight]{Pic/Problem7a}}
+\caption{Рис. } \label{Fig:}
+\end{figure}
+
+
+\newpage
+
+
+\section{Приближения матриц}
+
+
+
+\begin{problem}  Найти наилучшее приближение ранга $2$ по фробениусовой норме для матрицы \[ B = \left( \begin{matrix} 6 & 0 & 6 \\ 0 & 12 & 6 \\ 6 & 6 & 9 \end{matrix} \right).\] \end{problem}
+
+\begin{problem}  Найти наилучшее приближение $B_1$ ранга $1$ для матрицы $B$ в норме $\left\| \cdot \right\|_2$ и найти $\left\| B - B_1\right\|_2$, где \[ B = \left( \begin{matrix} 6 & 30 & -21 \\ 17 & 10 & -22  \end{matrix} \right).\] \end{problem}
+
+
+
+%\begin{problem} Доказать утверждение из лекции: для любой матрицы $A$ и $\forall \varepsilon >0$ существует матричная норма $\left\| \cdot \right\|$, согласованная с некоторой векторной нормой $\left| \cdot\right|$ и такая, что \[ \left\| A \right\| \leq \rho(A) + \varepsilon.\] \end{problem}
+
+
+\section{Оценка погрешности решений}
+
+%\begin{problem} Доказать утверждение из лекции. Если $\left( A+ \delta A\right)\hat{x} = b + \delta b, \delta x = \hat{x} - x$, то \[ \frac{1}{\chi(A)} (\delta b + \delta A) \leq \delta x \leq \chi(A) \left( \delta b + \delta A\right),\]  где $\delta A = \frac{\left\| \delta A\right\|}{\left\| A\right\|}$ для малых $\delta B, \delta A, \delta x$.  \end{problem} 
+
+
+\begin{problem} Дана система уравнений \[ \begin{cases} x_1 + x_2 = 3, \\ x_1 - x_2 = 4\end{cases}\] Элементы главной диагонали могут меняться на $\varepsilon_1$, а элементы правой части на $\varepsilon_2$. Оценить возможное изменение решения для нормы \[ \left\| A \right\|_2 =\sqrt {\lambda _{\max }\left(A^{*}A\right)}.\]   \end{problem} 
+
+
+\begin{problem} Оцените относительную погрешность приближённого решения $(1,1)$ системы $Ax = b$ в норме $\left| \cdot \right|_1$ с помощью числа обусловленности матрицы $A$, где \[ A = \left( \begin{matrix} 3.1 & -0.1 \\ 5.2 & -2.9 \end{matrix} \right), \qquad  b = \left( \begin{matrix} 2.9 \\ 2.2 \end{matrix} \right). \] \end{problem} 
+
+
+
+\begin{problem}  Найдите приближенно обратную матрицу к матрице \[ A = \left( \begin{matrix} 1 & 3 \\ 1 & 4 \end{matrix} \right)  \]  и оцените погрешность приближения относительно равномерной нормы  $\| \cdot \|_{\infty}$, если элементы матрицы $A$ известны с абсолютной погрешностью $\varepsilon = 0.01$. \end{problem} 
+
+
+
+\subsection{Теоретические оценки}
+
+
+\begin{problem} Доказать, что   \[ \delta A^{-1} \leq \frac{\chi(A) \delta A}{1-\chi(A) \delta A}. \] \end{problem} 
+
+
+\textbf{Замечание}. Иногда эту огрубляют до   \[ \delta A^{-1} \leq \chi(A) \delta A. \]
+
+
+\begin{problem} Доказать, что если \begin{gather*} \left( A+ \Delta A\right)\hat{x} = b + \Delta b, \\ Ax = b, \end{gather*} то \[  \delta x \leq\frac{ \chi(A)}{ 1 - \delta A \cdot  \chi(A)} \left( \delta b + \delta A\right),\]  для малых $\delta B, \delta A, \delta x$. \end{problem} 
+
+
+%\begin{problem} Решить пример Крылова ($\sqrt{7}$ берётся с разной точностью) \[ \begin{cases} x_1 +2 x_2 = 3, \\ \sqrt{7} x_1 + 2 \sqrt{7} x_2 = 3 \sqrt{7}\end{cases}\] \end{problem} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+
+
+
+
+\section{Круги Гершгорина}
+
+
+
+\begin{problem}  Нарисовать круги Гершгорина для матрицы $A$ и с их помощью оценить собственные значения. Вычислить собственные значения и сравнить результаты \[ A = \left( \begin{matrix} 5 & 0.3 \\ -0.5 & 2 \end{matrix}\right). \] \end{problem}
+
+
+\begin{problem} С помощью теоремы Гершгорина нарисовать область, где находятся собственные значения матрицы $A$.   \[ A = \left( \begin{matrix} 3 & 0.2& -0.2 \\ 0 & 2 & 0.1 \\ 0.1 & 0.4 & 1\end{matrix} \right). \]\end{problem}
+
+
+
+\begin{problem} Доказать, что определитель матрицы $A$ не равен $0$. Нарисовать наименьшую область, содержащую собственные значения \[ A =  \left( \begin{matrix} 2 & \cos x & \cos^2 x \\ 0 & 5 & \sin^2 x \\ 3 \sin^2 x & 3 & 10  \end{matrix} \right) \]  при $x = \frac{\pi}{6}, \frac{\pi}{3}$.\end{problem}
+
+
+\begin{problem} Доказать, что в предыдущих трёх задачах все собственные значения --- положительные действительные числа и оценить их. \end{problem}
+
+\textit{Указание}: если $\lambda \in \mathbb{C} \backslash \mathbb{R}$ --- собственное значение матрицы $A$, то $\bar{\lambda}$ --- тоже её собственное значение.
+
+
+
+\newpage
+
+
+
+
+\section{Итеративные методы}
+
+
+
+\begin{problem} Решить СЛУ методом итераций: \[ \begin{cases}10x_1 +2x_2 +3x_3 = 23 \\
+2x_1 +10x_2 +3x_3 = 31; \\
+2x_1 +3x_2 +10x_3 = 38, \end{cases} \] определить номер итерации, после которой погрешность приближения по каждой координате не превосходит 0.01 и найдите соответствующее приближённое решение. Начните с \[x_0 = (0, 0, 0).\] \end{problem}
+
+
+
+\begin{problem}  Решить СЛУ методом Зейделя: \[ \begin{cases}10x_1 +3x_2 +x_3 = 35;\\
+x_1 +10x_2 +2x_3 = 17;\\
+x_1 +2x_2 +10x_3 = 25;, \end{cases} \] \end{problem}
+
+\begin{problem} Привести СЛУ к виду, удобному для итераций: \[ \begin{cases}4x_1 -3x_2 -4x_3 = -1; \\
+7x_1 +x_2 +4x_3 = 39;\\
+3x_1 +4x_2 -5x_3 = 14;, \end{cases} \] \end{problem}
+
+
+
+
+
+
+
+\section{Положительные матрицы}
+
+\begin{problem}  Найти самую влиятельную вершину в графе: \begin{figure}[h!]
+\center{\includegraphics[width=0.5\textwidth]{Pic/Graph2}}
+\end{figure}
+.\end{problem} 
+
+\begin{problem}  Разложима ли матрица $A$? \[ A = \left(\begin{matrix} 0 & 1 & 2 & 0 & 0 \\ 0 & 0 & 0 & 7 & 0 \\  2 & 0 & 0 & 0 & 0 \\ 0 & 9 & 2 & 0 & 0 \\  0 & 0 & 0 & 1 & 0 \end{matrix} \right).\]  \end{problem} 
+
+\begin{problem}  Разложима ли матрица $B$? Найти $\lambda$ и $v$ из теоремы Перрона \[ B = \left(\begin{matrix} 0 & 1 & 0 \\ 3 & 0  & 3 \\  0 & 2 &  0 \end{matrix} \right).\]  \end{problem} 
+
+
+\begin{problem} Найти самую влиятельную вершину в ориентированном графе с помощью алгоритма PageRank с $\beta = 0.15$, где матрица смежности графа равна \[  A = \left( \begin{matrix} 0 & 1 & 0 & 0 & 0 \\
+ 1 & 0 & 1 & 0 & 0 \\
+ 1 & 1 & 0 & 0 & 1 \\
+ 1 & 0 & 0 & 0 & 0 \\
+ 0 & 1 & 1 & 1 & 0 \\
+ \end{matrix} \right). \] \end{problem}
+
+\begin{problem} Доказать, что следующие критерии неразложимости матрицы $A \geq 0$ эквивалентны: 
+
+\vspace{5mm}
+
+\begin{itemize}
+
+\item Для любых $i, j$ существует последовательность \[i  = i_0,  i_1, \dots i_k = j, \qquad a_{i_k i_{k+1}} > 0.\]
+
+\vspace{5mm}
+
+\item Для любых $i, j$ существует $m <n$ т.,ч. \[ \left(A^m\right)_{ij} > 0. \]
+
+\vspace{5mm}
+
+\item $(E+ A)^{n-1} >0$, где $n$ --- порядок матрицы. 
+
+\end{itemize}
+
+\end{problem}
+
+
+\section{Вычисление характеристического многочлена}
+
+\subsection{Метод Данилевского (вычисление характеристического многочлена)}
+
+
+
+\begin{problem} Методом Данилевского найти характеристический многочлен \[ A = \left( \begin{matrix} 3 & 1 & 2 & 4 \\ 7 & 1 & 0 & 1 \\ 2 & 1 & 2 & 3 \\ 4 & 1 & 2 & 2  \end{matrix} \right). \]   \end{problem} 
+
+
+\subsection{Метод Крылова (вычисление минимального многочлена)}
+
+
+%\textbf{Задача}. Методом Крылова найти минимальный многочлен  \[ A = \left( \begin{matrix} 1 & -3 & -1 \\ -3 & 1 & 1  \\ -1 & 1 & 5  \end{matrix} \right). \]  
+
+
+\begin{problem} Методом Крылова найти минимальный многочлен \[ A = \left( \begin{matrix} -1 & 0 & 1 & 2 \\ 7 & 1 & 0 & 1 \\ -1 & 1 & 8 & 11 \\ 0 & 0 & 1 & 0  \end{matrix} \right). \] \end{problem} 
+
+
+\subsection{Метод Фадеева-Леверрье}
+
+
+\begin{problem}   Методом Фадеева-Леверрье найти характеристический многочлен и обратную матрицу для матрицы \[\left( \begin{matrix} 2 & -1 & 2 \\ -1 & 2 & 1 \\ 1 & -1 & 2 \end{matrix} \right) \] \end{problem}
+
+
+\section{Вычисление собственных значений}
+
+
+
+
+
+\subsection{Метод вращения и метод Якоби}
+
+
+
+
+\begin{problem} Найти собственные векторы и собственные значения методом вращения \[ \left( \begin{matrix}2 & 2 & -2 \\ 2 & 5 & -4 \\ -2 & -4 & 5 \end{matrix} \right). \]  \end{problem}
+
+
+\begin{problem} Найти собственные векторы и собственные значения методом Якоби  \[ \left( \begin{matrix}3 & 2-i & 0 \\ 2+i & 7 & 0 \\ 0 & 0 & 3 \end{matrix} \right). \] 
+Матрица удовлетворяет условию $A^* = A$, что гарантирует, что у неё есть диагональная форма.  \end{problem}
+
+
+\subsection{QR-алгоритм}
+
+
+
+\begin{problem}  При помощи QR-алгоритма найти собственные значения матрицы \[ A = \left( \begin{matrix} 6 & -2 & 2 \\ -2 & 5 & 0 \\ 2 & 0 & 7 \end{matrix} \right). \] \end{problem}
+
+\subsection{Степенной метод (Метод итераций)}
+
+\begin{problem}  Методом итераций найти собственные значения и собственные векторы \[ A = \left( \begin{matrix} 6 & -2 & 2 \\ -2 & 5 & 0 \\ 2 & 0 & 7 \end{matrix} \right). \] \end{problem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Функции от матриц}
+
+
+
+\subsection{Вычисление функций от матрицы}
+
+
+
+
+\begin{problem}  
+
+
+Дана жорданова форма \[ A = \left( \begin{matrix} 2 & 0 & 0 \\ 0 & 1 & 1 \\  0 & 0 & 1 \end{matrix} \right). \]  Вычислить $f(A)$ для следующих функций:
+
+
+\vspace{5mm}
+
+ \begin{enumerate}
+
+
+
+\item $f(\lambda) = \lambda^{100}$.
+
+\vspace{5mm}
+
+\item $f(\lambda) = \sqrt{\lambda}$.
+
+
+\vspace{5mm}
+
+\item $f(\lambda) = e^{c\lambda}$.
+
+
+
+%\item $f(\lambda) = \sin{\left(\frac{\pi}{2} \lambda\right)}$.
+
+
+\end{enumerate}  
+   \end{problem} 
+
+
+\begin{problem}  
+
+
+  Найти $\sqrt{A}$, где $A = \left(\begin{matrix} 3 & 1 \\ -1 & 5\end{matrix}  \right)$.
+
+   \end{problem} 
+
+
+\begin{problem}  Найти $e^{A}$, где $A = \left(\begin{matrix} 4 & 2 & -5  \\ 6 & 4 & -9 \\ 5 & 3 & -7\end{matrix}  \right)$.
+ \end{problem} 
+
+
+\subsection{Решение линейных ОДУ}
+
+
+\begin{problem}   Решить задачу Коши \[ \begin{cases} \displaystyle \frac{d x_1}{dt} = 2 x_1, \qquad x_1 \bigr|_{t=0} = 1 \\[6pt] \displaystyle \frac{d x_2}{dt} = x_2 + x_3, \qquad x_2 \bigr|_{t=0} = 1 \\[6pt]  \displaystyle \frac{d x_3}{dt} = x_3, \qquad x_3 \bigr|_{t=0} = 1   \end{cases}  \]  
+
+\end{problem} 
+
+
+
+
+
+
+
+\section{Линейное программирование}
+
+\begin{problem}  Решить задачу ЛП и найти ``теневые цены'', отвечающие каждому ограничению.
+$$ 1 x_1 +3 x_2 +1 x_3  \to \min;$$
+$$\begin{cases} -1 x_1 +1 x_2 +1 x_3  \geq 3 \\ 1 x_1 +1 x_2 -1 x_3  \geq 2 \\ x_1 \geq 0; x_2 \geq 0; x_3 \geq 0 \\   \end{cases}$$ \end{problem}
+
+\section{Базис Грёбнера}
+
+
+\begin{problem} Решить с помощью базисов Грёбнера систему уравнений \[ \begin{cases} x^2 y + x^2 z - 2xz = 0\\ x^2 + 2 yz - 3 = 0 \\ x^4 - y^2 z^2 = 0\end{cases} \] 
+\end{problem} 
+
+\begin{problem} Найти базис Грёбнера \[ \begin{cases}  f_1 = x^3 y + 2xy^3 - 3 x^2y^2\\f_2 = xy^2 - 2y^2 + x - 1\\ f_ 3 = x^4\end{cases} \]  и решить систему уравнений $f_1 = f_2 = f_3 = 0$.  
+\end{problem} 
+
+
+
+\end{document}

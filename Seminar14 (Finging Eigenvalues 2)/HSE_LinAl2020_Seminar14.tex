@@ -1,0 +1,854 @@
+\documentclass[9pt]{beamer}
+
+
+
+
+\usepackage{beamerthemesplit}
+\usetheme{Boadilla}
+\usecolortheme{orchid}
+
+
+
+
+
+ % \usepackage[cp866]{inputenc}                %%% Є®¤Ёа®ўЄ  DOS
+  \usepackage[cp1251]{inputenc}
+%  \usepackage[T2A]{fontenc}                %%% ???
+%\usepackage[english,russian]{babel}
+%\usepackage[russian]{babel}
+ \usepackage[OT1]{fontenc}
+%\usepackage[english]{babel}
+\usepackage[russian]{babel}
+
+\usepackage{amssymb,latexsym, amsmath, mathdots}
+
+\usepackage{amscd}
+\usepackage{multirow}
+\usepackage{comment}
+
+\usepackage{epstopdf}
+
+
+
+%\usepackage[table]{xcolor} %colored cells
+
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark} %arrows in tables
+
+
+\usepackage{mnsymbol} % udots in matrices
+
+
+ \usepackage{pgfpages}
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen=bottom}
+%% \setbeameroption{show notes on second screen}
+
+%\setbeamercolor{alerted text}{fg=red!80!black}
+
+
+% \setbeamercolor{alerted text}{fg=blue!50!green}
+% \setbeamercolor{fortheorem}{bg=blue!15!white}
+% \setbeamercolor{EMPF}{bg=blue!25!white}
+% \setbeamercolor{EMPF2}{bg=blue!35!white}
+
+%\setbeamersize{text margin left=5.mm, text margin right=5.mm}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+
+%\def\emphbox#1#2#3{\begin{beamercolorbox}[wd=#2, ht=#1, center, colsep=1.mm]{EMPF} #3 \end{beamercolorbox}}
+
+%---------------------------------------------------------------------------------------------------------------------------
+
+
+%\advance\leftskip-5.mm
+
+
+
+%***************************************************************************************************************************
+
+\theoremstyle{theorem}
+\newtheorem{mytheorem}[theorem]{Теорема}
+\newtheorem{mylemma}[theorem]{Лемма}
+\newtheorem{mycorollary}[theorem]{Следствие}
+
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{assertion}[theorem]{Утверждение}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{assumption}[theorem]{Предположение}
+
+\newtheorem{convention}[theorem]{Договорённость}
+\newtheorem{question}[theorem]{Вопрос}
+%\newtheorem{mydefinition}{mydefinition}
+
+\theoremstyle{definition}
+\newtheorem{mydefinition}[theorem]{Определение}
+\newtheorem{myexample}[theorem]{Пример}
+
+
+
+%***************************************************************************************************************************
+
+\chardef\No=194
+\newcommand{\bd}{{\rm bd}}
+\newcommand{\cl}{{\rm cl}}
+\newcommand{\ind}{{\rm ind}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\inj}{{\sl in}}
+\newcommand{\pr}{{\rm pr}}
+\newcommand{\st}{{\rm St}}
+
+
+\DeclareMathOperator{\sgrad}{sgrad}
+
+\DeclareMathOperator{\cnt}{const}
+
+\DeclareMathOperator{\Aut}{Aut}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+
+\DeclareMathOperator{\Int}{Int}
+
+
+\DeclareMathOperator{\tr}{tr}
+
+\DeclareMathOperator{\Mat}{Mat}
+
+
+
+
+
+
+
+%****************************************************************************
+\newcommand{\Ker}{\mathrm{Ker}\,\,}
+\newcommand{\Ann}{\mathrm{Ann}\,\,}
+
+\newcommand{\Imm}{\mathrm{Im}\,\,}
+
+\newcommand{\rk}{\mathrm{rk}\,\,}
+
+\newcommand{\const}{\mathrm{const}}
+
+
+
+\DeclareMathOperator{\Pen}{\mathcal{P}}
+
+
+\DeclareMathOperator{\Core}{K}
+
+
+\DeclareMathOperator{\BLG}{\operatorname{BLG}}
+
+\DeclareMathOperator{\AutBP}{\operatorname{Aut}(V, \mathcal{P})}
+
+
+\def\minus{\hbox{-}}   %Sign of minus in big matrices
+
+\usepackage{multirow}  %Columns spanning multiple rows
+
+\usepackage[normalem]{ulem} %underline that can break lines
+
+%****************************************************************************
+
+
+
+\title% [] (optional, only for long titles)
+{МАГОЛЕГО\\ Линейная алгебра в приложениях \\ Семинар 14}
+%\subtitle{}
+\author [Д.\,И.~Пионтковский, И. \,К.~Козлов] %(optional, for multiple authors)
+{Д.\,И.~Пионтковский, И. \,К.~Козлов \\ {\footnotesize(\textit{ВШЭ})}}
+
+
+\date % [](optional)
+{30 апреля 2021}
+%\subject{Mathematics}
+
+
+
+
+
+
+
+
+\usepackage{hyperref}
+\hypersetup{unicode=true}
+
+
+
+\begin{document}
+
+%\includeonlyframes{}
+\frame{\titlepage}
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Литература}
+%----------------------------------------------------------
+
+
+\begin{thebibliography}{10}
+  \beamertemplatebookbibitems
+  \bibitem{Gantmacher} Шевцов Г.С.,
+    \newblock {\em  Линейная алгебра: теория и прикладные аспекты},
+     \newblock {Глава 11. О приближённых методах вычисления собственных значений и собственных векторов},
+  \end{thebibliography}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+\section{Метод Якоби}
+
+\begin{frame}[plain]\frametitle{Метод Якоби} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+
+Метод вращений:
+
+
+\vspace{5mm}
+
+
+\begin{thebibliography}{10}
+  \beamertemplatebookbibitems
+  \bibitem{Gantmacher} Шевцов Г.С.,
+    \newblock {\em  Линейная алгебра: теория и прикладные аспекты},
+        \newblock{ Глава 11.1 Метод вращений (метод Якоби)}
+  \end{thebibliography}
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+
+
+{\color{blue} Метод Якоби.} Для самосопряжённых матриц \[\bar{A}^T = A.\] 
+
+Меняем матрицу на \[ A \to \bar{R}^T A R.\]
+
+Находим в матрице $A$ наибольший по модулю недиагональный элемент $a_{ij}$.  На этот раз матрица
+\[{\displaystyle R(i,j,\theta )={\left(\begin{array}{ccccccccccc}   1 &  & &  &   &  & & & & &  \\
+%
+&\ddots & & & & & & & & &\\
+%
+& & 1 & & & & & & & & \\
+%
+& & & \cos{\varphi} & &  & &- e^{i\theta}\sin \varphi & & & \\
+ %
+& & & & 1 & & & &  \\
+ %
+& & & & &\ddots & & &  \\
+ %
+& & & & & & 1 & & & & \\
+ %
+ & & & e^{-i\theta}\sin \varphi && & & \cos \varphi & & & \\
+ %
+  &  & & & & & & & 1   & &  \\
+ %
+ & & & & & & & & & \ddots & \\
+ %
+ &  & & & & & & & & & 1  \end{array}\right) }}.\] 
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+
+\begin{itemize}
+
+\item Для $\varphi$ формулы те же, но $a_{ij}$ меняется на $\left| a_{ij}\right|$: \[ \tan 2 \varphi = \frac{2 \left| a_{ij}\right|}{a_{ii} - a_{jj}}.\]
+
+\vspace{5mm}
+
+\item  Угол $\theta$ берётся как у $a_{ij}$: \[ \theta = \arg a_{ij}.\] Напомним, что \[e^{i \theta} = \cos{\theta} + i \sin{\theta}.\] Заметим, что \[ e^{i\theta} = \frac{a_{ij}}{\left| a_{ij} \right|}.\]
+
+\end{itemize}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+\textbf{Задача}. Найти собственные векторы и собственные значения методом Якоби.
+ \[ \left( \begin{matrix}3 & 2-i & 0 \\ 2+i & 7 & 0 \\ 0 & 0 & 3 \end{matrix} \right). \] 
+ 
+ 
+ 
+%матрица удовлетворяет условию $A^* = A$, гарантирует, что у неё есть диагональная форма.
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+   Наибольший по модулю недиагональный элемент \[ a_{12} = 2-i.\] Тогда \[ \left|a_{12} \right| = \sqrt{5}, \qquad  e^{i\theta} = \frac{2-i}{\sqrt{5}}. \]\[ a_{11} = 3, \qquad a_{33} = 7.\]
+  
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+Находим угол поворота:  \[ \tan 2 \varphi = \frac{2 \left|a_{ij}\right|}{a_{ii} - a_{jj}} = \frac{2\sqrt{5}}{3 - 7} = -\frac{\sqrt{5}}{2}. \] Поэтому: \[\cos 2 \varphi =  \frac{1}{\sqrt{1 + \tan^2 2 \varphi}} =   \frac{2}{3}.    \] Косинус и синус:
+\begin{gather*}  \cos  \varphi =  \sqrt{ \frac{1+\cos2\varphi}{2}} = \sqrt{\frac{5}{6}}, \qquad \sin  \varphi =  - \sqrt{ \frac{1-\cos2\varphi}{2}} = - \frac{1}{\sqrt{6}} \end{gather*} Знак у синуса как у \[ \tan 2 \varphi  <0.\]
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+
+Итак, \begin{gather*}  \cos  \varphi =\sqrt{\frac{5}{6}}, \qquad \sin  \varphi =  - \frac{1}{\sqrt{6}}, \qquad e^{i\theta} = \frac{2-i}{\sqrt{5}} \end{gather*} Матрица поворота: \[ R =  \left(\begin{array}{ccccccccccc}   \displaystyle   \sqrt{\frac{5}{6}} & \displaystyle - \frac{2-i}{\sqrt{5}} \left(- \frac{1}{\sqrt{6}} \right)   & \displaystyle0 \\[6pt] \displaystyle
+%
+\displaystyle  \frac{2+i}{\sqrt{5}} \left( - \frac{1}{\sqrt{6}} \right) &  \displaystyle   \sqrt{\frac{5}{6}}  & 0 \\[6pt] \displaystyle
+ %
+ 0 & 0 & \displaystyle  1 \\
+  \end{array}\right).\]
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+
+
+Матрица \[ A_1 = \bar{R}^T A R =  \left( \begin{matrix} 2 & 0 & 0 \\ 0 & 8 & 0 \\ 0 & 0 & 3 \end{matrix} \right). \] 
+
+
+\vspace{5mm}
+
+\textbf{Ответ:}  \[ \lambda_1 = 2, \qquad \lambda_2 = 8, \qquad \lambda_3 = 3.\] Собственные векторы \[ v_1 =  \left(\begin{array}{c}   \displaystyle   \sqrt{\frac{5}{6}}  \\[6pt] \displaystyle
+%
+\displaystyle  \frac{2+i}{\sqrt{5}} \left( - \frac{1}{\sqrt{6}} \right)\\[6pt] \displaystyle
+ %
+ 0 \\
+  \end{array}\right), \qquad
+  v_2= \left(\begin{array}{c}  \displaystyle - \frac{2-i}{\sqrt{5}} \left(- \frac{1}{\sqrt{6}} \right)   \\[6pt] \displaystyle
+%
+  \displaystyle   \sqrt{\frac{5}{6}}  \\[6pt]  0  \\
+  \end{array}\right) \qquad  
+   v_3 = \left(\begin{array}{c}   \displaystyle0 \\[6pt]  0 \\ \displaystyle  1 \\
+  \end{array}\right).\]
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+
+
+\section{Степенной метод (метод итераций)}
+
+\begin{frame}[plain]\frametitle{Степенной метод} \tableofcontents[currentsection]\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+Пусть $A = A^T$. 
+
+\vspace{5mm}
+
+{\color{cyan} Методом итераций можно находить собственные значения $A$.}
+
+\vspace{5mm}
+
+\textbf{Наблюдение}. Возьмём базис $e_i$ из собственных векторов \[ Ae_i = \lambda_i e_i, \qquad |\lambda_1| \geq |\lambda_2| \geq \dots.\] 
+
+\vspace{5mm}
+
+Тогда \[ A^k (e_1, \dots, e_n) =\left (\lambda_1^k e_1, \dots, \lambda_n^k e_n\right)= \lambda_1^k \cdot \left( e_1, \left(\frac{\lambda_2}{\lambda_1}\right)^k e_2, \dots, , \left(\frac{\lambda_n}{\lambda_1}\right)^k e_n \right).\] $\left(\frac{\lambda_j}{\lambda_1}\right)^k \to 0$, если $\left|\frac{\lambda_j}{\lambda_1}\right|<1$.
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+Пусть $A = A^T$. 
+
+\vspace{5mm}
+
+{\color{cyan} Методом итераций можно находить собственные значения $A$.}
+
+\vspace{5mm}
+
+
+Берём произвольный вектор $v^{(0)}$ и находим \[ v^{(k)} = A^k v^{(0)}.\] \begin{itemize}
+
+\vspace{5mm}
+
+\item Собственный вектор \[ v^{(k)} = A^{(k)} v^{(0)}\]  при достаточно больших $k$.
+
+\vspace{5mm}
+
+\item Собственное значение \[ \lambda = \lim \frac{v^{(k)}_i}{v^{(k-1)}_i }\] для любого индекса $i$, где этот предел имеет смысл. 
+
+\end{itemize} 
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+\begin{itemize}
+
+\item Если процесс не сходится, поменять стартовый вектор $v^{(0)}$.
+
+\vspace{5mm}
+
+\item Если векторы $v^{(k)}$ слишком большие --- домножить их на константу \[ v^{(k)} \to \alpha_k v^{(k)} \] (например, нормировать). Константу $\alpha_k$ при вычислении $\lambda$ учесть (!).
+
+\end{itemize}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+У какой матрицы ранга $1$  ненулевое собственное значение $\lambda$ и собственный вектор $v$?
+Ответ: 
+\[ X = \lambda \frac{v v^T }{(v,v)}.\]
+
+Действительно, \[ X u = \lambda v   \frac{ (v, u)}{(v,v)}.\]   Поэтому \[ \begin{cases} X v = \lambda v, \\ X u = 0, \qquad (u, v) = 0 \end{cases}\]
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+Алгоритм нахождения собственных значений: 
+
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+\item Находим наибольшее собственное значение $\lambda$ и соотв. собств. вектор $v$. 
+
+\vspace{5mm}
+
+\item  Переходим к матрице \[ A - \lambda \frac{v v^T }{(v,v)}.\]
+
+\end{enumerate}
+
+
+\vspace{5mm}
+
+\textbf{Замечание.} Другой способ --- перейти к ортогональному дополнению к $v$.
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+\subsection{Пример}
+
+\begin{frame}[plain]\frametitle{Пример} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+\textbf{Задача}. Методом итераций найти собственные значения \[ A = \left( \begin{matrix} 6 & -2 & 2 \\ -2 & 5 & 0 \\ 2 & 0 & 7 \end{matrix} \right). \] 
+
+\vspace{5mm}
+
+\textbf{Решение-1}. См. Jupyter Notebook.
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+\textbf{Решение-2 (как на лекции)}. 
+
+\vspace{5mm} 
+
+
+Поскольку $A$ --- симметричная матрица, ортонормированный базис из собственных векторов \[ A e_i = \lambda_i e_i, \qquad (e_i, e_j ) = \delta_{ij}.\] Это теорема о приведении квадратичной формы к главным осям.
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+\begin{enumerate}
+
+\item Шаг 1. Будем искать собственный вектор вида \[ v_1 = \left( \begin{matrix} x_1 \\ x_2 \\ 1 \end{matrix} \right).\] Уравнение $A v_1= \lambda v_1$ принимает вид \[ \begin{cases} 6x_1 -2x_2 +2 = \lambda x_1 \\ -2 x_1 + 5 x_2 = \lambda x_2 \\ 2x_1 + 7 = \lambda.\end{cases}  \] Чтобы решить его методом итераций перепишем его в виде \[\begin{cases} \lambda^{(k+1)} = 2x_1^{(k)} + 7\\ x_1^{(k+1)} = \frac{1}{\lambda^{(k)} }\left( 6x^{(k)}_1 -2x^{(k)}_2 +2 \right) \\ x_2^{(k+1)} = \frac{1}{\lambda^{(k)}} \left( -2 x_1^{(k)}  + 5 x_2^{(k)}  \right).\end{cases} \]
+
+\end{enumerate}
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+Методом итераций находим решение  \[\begin{cases} \lambda^{(k+1)} = 2x_1^{(k)} + 7\\ x_1^{(k+1)} = \frac{1}{\lambda^{(k)} }\left( 6x^{(k)}_1 -2x^{(k)}_2 +2 \right) \\ x_2^{(k+1)} = \frac{1}{\lambda^{(k)}} \left( -2 x_1^{(k)}  + 5 x_2^{(k)}  \right).\end{cases} \]
+
+Получаем \[ \lambda_1 = 9, \qquad v_1 = \left( \begin{matrix} 1\\ - \frac{1}{2} \\ 1 \end{matrix} \right).\]
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+\begin{enumerate}
+
+\item Шаг 2. Ищем второй базисный вектор \[ v_2 = \left( \begin{matrix} x_1 \\ x_2 \\ x_3 \end{matrix} \right), \qquad A v_2 = \lambda v_2.\] Собственные векторы ортогональны и мы добавляем условие \[ (v_1, v_2) = 0.\] 
+
+
+\end{enumerate}
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+Получаем систему  \[ \begin{cases} 6x_1 -2x_2 +2x_3  = \lambda x_1 \\ -2 x_1 + 5 x_2 = \lambda x_2 \\ 2x_1 + 7x_3 = \lambda x_3 \\ x_1  - \frac{1}{2} x_2 + x_3 = 0.\end{cases}  \] Из последнего выражения удобно выразить $x_2$. Далее решаем методом итераций \[\begin{cases} x_2 = 2 x_1 +2x_3 \\  \lambda^{(k+1)} = \displaystyle \frac{8x_1^{(k)} + 10x_3^{(k)}}{2x_1^{(k)}+2x_3^{(k)}} \\[6pt] \displaystyle x_1^{(k+1)} = \frac{1}{\lambda^{(k)} }\left( 2x^{(k)}_1 -2x^{(k)}_3\right) \\[6pt]  \displaystyle x_3^{(k+1)} = \frac{1}{\lambda^{(k)}} \left(2 x_1^{(k)}  + 7 x_3^{(k)}  \right).\end{cases} \]
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+Берём вектор, ортогональный $v_1$, скажем \[ v_2 = \left( \begin{matrix} 1\\ 2 \\ 0 \end{matrix} \right).\] Метод итераций сойдётся к  \[ \lambda_2 = 6, \qquad v_2 = \left( \begin{matrix} 1\\ 2 \\ 2 \end{matrix} \right).\]
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+Последнее собственное значение находим из условий \[ \lambda_1 + \lambda_2 + \lambda_3 = \operatorname{tr} A.\] А собственный вектор из условия \[ (v_1, v_3) =0,\qquad (v_2, v_3) = 0.\]
+
+Получаем  \[ \lambda_3 = 3, \qquad v_3 = \left( \begin{matrix} 2 \\ 2 \\ -1 \end{matrix} \right).\]
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+
+
+\section{QR алгоритм}
+
+\begin{frame}[plain]\frametitle{QR алгоритм} \tableofcontents[currentsection]\end{frame}
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+{\color{blue} $QR$-алгоритм} нахождения собственных значений матрицы $A$.
+
+\vspace{5mm}
+
+\begin{itemize}
+
+\item Полагаем $A_0 = A$.
+
+\vspace{5mm}
+
+\item На каждом шаге берём $QR$ разложение \[ A_k = Q_k R_k.\] В качестве следующей матрицы берём \[ A_{k+1} = R_k Q_k.\]
+
+\vspace{5mm}
+
+\item Собственные числа --- диагональные элементы предельной матрицы (если она существует).
+
+
+\end{itemize}
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+
+Доказатьство сходимости QR-алгоритм в случае, когда выполнены следующие три условия:
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+\item матрица симметрична $A = A^T$;
+
+\vspace{5mm}
+
+\item все собственные значения положительны и различны;
+
+
+\vspace{5mm}
+
+\item у $Q^T$ существует LU разложение,
+
+\end{enumerate}
+
+\vspace{5mm}
+
+можно найти в \url{http://pi.math.cornell.edu/~web6140/TopTenAlgorithms/QRalgorithm.html}
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+\textbf{Идея доказательства.}\footnote{Дополнительный материал.}  Пусть \[ A = QR = Q\Lambda Q^T, \] где $\Lambda$ --- диагональная.
+
+\vspace{2mm}
+
+\begin{enumerate}
+
+
+\item Замечаем, что \[ A^k = Q\Lambda^k Q^T = (Q_1 \dots Q_k) (R_k \dots R_1).\]
+
+\vspace{2mm}
+
+\item Используем LU разложение $Q^T = LU$, получаем:  \[  Q\Lambda^k L\Lambda^{-k} =  (Q_1 \dots Q_k) (R_k \dots R_1) U^{-1} \Lambda^{-k}.\]
+
+
+\vspace{2mm}
+
+\item Честно проверяем, что $\Lambda^k L\Lambda^{-k}$ стремится к единичной матрице, поэтому выражение слева стремится к ортогональной матрице $Q$.
+
+\vspace{2mm}
+
+\item Поскольку $QR$ разложение единственно, $ (Q_1 \dots Q_k) \to Q$, в частности, $Q_k \to E$, и $(R_k \dots R_1) U^{-1} \Lambda^{-k} \to E$, откуда и вытекает сходимость \[A_k =  (Q_1 \dots Q_k)^T A  (Q_1 \dots Q_k) \to \Lambda. \].
+
+
+\end{enumerate}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+
+\textbf{Задача}. При помощи QR-алгоритма найти собственные значения матрицы \[ A = \left( \begin{matrix} 6 & -2 & 2 \\ -2 & 5 & 0 \\ 2 & 0 & 7 \end{matrix} \right). \] 
+
+\vspace{5mm}
+
+\textbf{Решение}: См. Jupyter Notebook. На шаге 15
+\[ A_{15} \approx \left( \begin{matrix}  8.99999609e+00  & 3.42548289e-03 & -6.27225062e-07 \\ 
+  3.42548289e-03  & 6.00000390e+00 & -1.83106304e-04 \\ 
+-6.27225064e-07 & -1.83106304e-04  & 3.00000001e+00 \end{matrix} \right).\] Собственные значения \[ \lambda_1 = 9, \qquad \lambda_2 = 6, \qquad \lambda_3 = 3.\]
+
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+\section{Добавление. QR разложение}
+
+\begin{frame}[plain]\frametitle{Добавление. QR разложение} \tableofcontents[currentsection]\end{frame}
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 14}
+%----------------------------------------------------------
+
+
+Способы нахождения $QR$ разложение:
+
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+\item Метод Грамма-Шмидта.
+
+\vspace{5mm}
+
+\item Через преобразование Хаусхолдера \[ {\displaystyle H_{u}(x)=x-2\langle x,u\rangle u}.\] Это отражение относительно гиперплоскости, проходящей через начало координат.
+
+\vspace{5mm}
+
+\item Через повороты Гивенса (вращения в 2-мерном подпространстве).
+
+\end{enumerate}
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+
+\end{document}

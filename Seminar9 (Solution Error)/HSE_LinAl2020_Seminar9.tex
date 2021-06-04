@@ -1,0 +1,1282 @@
+\documentclass[9pt]{beamer}
+
+
+
+
+\usepackage{beamerthemesplit}
+\usetheme{Boadilla}
+\usecolortheme{orchid}
+
+
+
+
+
+ % \usepackage[cp866]{inputenc}                %%% Є®¤Ёа®ўЄ  DOS
+  \usepackage[cp1251]{inputenc}
+%  \usepackage[T2A]{fontenc}                %%% ???
+%\usepackage[english,russian]{babel}
+%\usepackage[russian]{babel}
+ \usepackage[OT1]{fontenc}
+%\usepackage[english]{babel}
+\usepackage[russian]{babel}
+
+\usepackage{amssymb,latexsym, amsmath, mathdots}
+
+\usepackage{amscd}
+\usepackage{multirow}
+\usepackage{comment}
+
+\usepackage{epstopdf}
+
+
+
+%\usepackage[table]{xcolor} %colored cells
+
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark} %arrows in tables
+
+
+\usepackage{mnsymbol} % udots in matrices
+
+
+ \usepackage{pgfpages}
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen=bottom}
+%% \setbeameroption{show notes on second screen}
+
+%\setbeamercolor{alerted text}{fg=red!80!black}
+
+
+% \setbeamercolor{alerted text}{fg=blue!50!green}
+% \setbeamercolor{fortheorem}{bg=blue!15!white}
+% \setbeamercolor{EMPF}{bg=blue!25!white}
+% \setbeamercolor{EMPF2}{bg=blue!35!white}
+
+%\setbeamersize{text margin left=5.mm, text margin right=5.mm}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+
+%\def\emphbox#1#2#3{\begin{beamercolorbox}[wd=#2, ht=#1, center, colsep=1.mm]{EMPF} #3 \end{beamercolorbox}}
+
+%---------------------------------------------------------------------------------------------------------------------------
+
+
+%\advance\leftskip-5.mm
+
+
+
+%***************************************************************************************************************************
+
+\theoremstyle{theorem}
+\newtheorem{mytheorem}[theorem]{Теорема}
+\newtheorem{mylemma}[theorem]{Лемма}
+\newtheorem{mycorollary}[theorem]{Следствие}
+
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{assertion}[theorem]{Утверждение}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{assumption}[theorem]{Предположение}
+
+\newtheorem{convention}[theorem]{Договорённость}
+\newtheorem{question}[theorem]{Вопрос}
+%\newtheorem{mydefinition}{mydefinition}
+
+\theoremstyle{definition}
+\newtheorem{mydefinition}[theorem]{Определение}
+\newtheorem{myexample}[theorem]{Пример}
+
+
+
+%***************************************************************************************************************************
+
+\chardef\No=194
+\newcommand{\bd}{{\rm bd}}
+\newcommand{\cl}{{\rm cl}}
+\newcommand{\ind}{{\rm ind}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\inj}{{\sl in}}
+\newcommand{\pr}{{\rm pr}}
+\newcommand{\st}{{\rm St}}
+
+
+\DeclareMathOperator{\sgrad}{sgrad}
+
+\DeclareMathOperator{\cnt}{const}
+
+\DeclareMathOperator{\Aut}{Aut}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+
+\DeclareMathOperator{\Int}{Int}
+
+
+\DeclareMathOperator{\tr}{tr}
+
+\DeclareMathOperator{\Mat}{Mat}
+
+
+
+
+
+
+
+%****************************************************************************
+\newcommand{\Ker}{\mathrm{Ker}\,\,}
+\newcommand{\Ann}{\mathrm{Ann}\,\,}
+
+\newcommand{\Imm}{\mathrm{Im}\,\,}
+
+\newcommand{\rk}{\mathrm{rk}\,\,}
+
+\newcommand{\const}{\mathrm{const}}
+
+
+
+\DeclareMathOperator{\Pen}{\mathcal{P}}
+
+
+\DeclareMathOperator{\Core}{K}
+
+
+\DeclareMathOperator{\BLG}{\operatorname{BLG}}
+
+\DeclareMathOperator{\AutBP}{\operatorname{Aut}(V, \mathcal{P})}
+
+
+\def\minus{\hbox{-}}   %Sign of minus in big matrices
+
+\usepackage{multirow}  %Columns spanning multiple rows
+
+\usepackage[normalem]{ulem} %underline that can break lines
+
+%****************************************************************************
+
+
+
+\title% [] (optional, only for long titles)
+{МАГОЛЕГО\\ Линейная алгебра в приложениях \\ Семинар 9}
+%\subtitle{}
+\author [Д.\,И.~Пионтковский, И. \,К.~Козлов] %(optional, for multiple authors)
+{Д.\,И.~Пионтковский, И. \,К.~Козлов \\ {\footnotesize(\textit{ВШЭ})}}
+
+
+\date % [](optional)
+{19 марта 2021}
+%\subject{Mathematics}
+
+
+
+
+
+
+
+
+\usepackage{hyperref}
+\hypersetup{unicode=true}
+
+
+
+\begin{document}
+
+%\includeonlyframes{}
+\frame{\titlepage}
+
+
+
+\section{Матричные нормы.}
+
+\begin{frame}[plain]\frametitle{Матричные нормы} \tableofcontents[currentsection]\end{frame}
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+\begin{itemize}
+
+\item \textbf{Матричные нормы} --- это нормы на матрицах + \textit{свойство субмультипликативности:}
+\[ {\displaystyle \|AB\|\leq \|A\|\|B\|}\] 
+
+
+\vspace{5mm}
+
+
+\vspace{5mm}
+
+
+\item  \textbf{Индуцированная норма}. Любая норма на $\mathbb{R}^n$ задаёт норму на $\operatorname{Mat}_{n \times n} (\mathbb{R})$:  \[ \left\| A\right\| = \max_{\left| x\right|  =1} \left| Ax\right|.\]
+
+
+\end{itemize}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+\textbf{Задача}.  Докажите, что  \[ A^{-1} \geq \frac{\left\| E \right\| }{\left\| A\right\|}.\] 
+
+
+
+
+\vspace{5mm}
+
+\textbf{Решение.} По свойствам матричной норма \[ \left\| E \right\| =  \left\| A A^{-1} \right\| \leq \left\| A\right\| \left\| A^{-1} \right\|.\] Откуда и получаем требуемое неравенство.
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Примеры индуцированных матричных норм:
+
+\vspace{5mm}
+
+\begin{itemize}
+
+\item Для $\left| x\right|_1 = \sum \left|x_i \right|$ получаем максимум суммы модулей элементов в столбцах: \[{\displaystyle \|A\|_{1}=\max _{1\leq j\leq n}\sum _{i=1}^{m}|a_{ij}|}.\]
+
+
+
+
+
+\vspace{2mm}
+
+\item  Для евклидовой метрике $\left| x\right|_2$ получаем максимальное сингулярное значение: \[{\displaystyle \|A\|_{2}=\sigma _{\max }(A)}.\]
+
+\vspace{2mm}
+
+
+
+
+\item Для $\left| x\right|_{\infty} = \max \left|x_i \right|$ получаем максимум суммы модулей  элементов в строках: \[{\displaystyle \|A\|_{\infty }=\max _{1\leq i\leq m}\sum _{j=1}^{n}|a_{ij}|}.\]
+
+
+
+\end{itemize}
+
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+
+\textbf{Задача}. Найти $x, y,z, t$ для матрицы \[ A = \left( \begin{matrix} 1 & 2 \\ 3 & 4\end{matrix}  \right). \] 
+
+\begin{figure}[h!]
+\center{\includegraphics[height=0.8\textheight]{Pic/Problem7a}}
+\end{figure}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+
+
+ В первых двух случаях нужно найти диаметр у образа единичный сферы (максимальное расстояние между противоположными точками). 
+ 
+ \vspace{5mm}
+ 
+ Нужно понять, что ``слева'' за норма. Ответ --- удвоенная норма оператора $A$.
+ 
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+\begin{figure}[h!]
+\center{\includegraphics[width=\textwidth]{Pic/MetricProb1a}}
+\end{figure}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Для матрицы $ A = \left( \begin{matrix} 1 & 2 \\ 3 & 4\end{matrix}  \right)$ получаем $ x= 14$.
+
+Векторная норма: $\left| x\right|_{\infty} = \max \left|x_i \right|$, поэтому матричная норма (сумма по строкам) \[{\displaystyle \|A\|_{\infty }=\max _{1\leq i\leq m}\sum _{j=1}^{n}|a_{ij}|} = 7.\]  
+
+\begin{figure}[h!]
+\center{\includegraphics[width=\textwidth]{Pic/MetricProb1a}}
+\end{figure}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+\begin{figure}[h!]
+\center{\includegraphics[width=\textwidth]{Pic/MetricProb1b}}
+\end{figure}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Для матрицы $ A = \left( \begin{matrix} 1 & 2 \\ 3 & 4\end{matrix}  \right)$ получаем $ y= 12$.
+
+
+Векторная норма: $\left| x\right|_1 = \sum \left|x_i \right|$, поэтому матричная норма (сумма по столбцам) \[{\displaystyle \|A\|_{1}=\max _{1\leq j\leq n}\sum _{i=1}^{m}|a_{ij}|} = 6.\]
+
+
+
+\begin{figure}[h!]
+\center{\includegraphics[width=\textwidth]{Pic/MetricProb1b}}
+\end{figure}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Далее, вспомним SVD разложение матрицы \[  A = U \Sigma V^*\]
+
+
+
+
+\begin{figure}[h!]
+\center{\includegraphics[width=\textwidth]{Pic/SVD}}
+\end{figure}
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Рассмотрим SVD разложение $A = U \Sigma V^*$. Тогда $z, t$ выражаются через сингулярные значения $\sigma_1, \sigma_2$.
+
+
+\begin{figure}[h!]
+\center{\includegraphics[width=\textwidth]{Pic/MetricProb1c}}
+\end{figure}
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+\begin{itemize}
+
+\item $V$ --- ортогональная матрица, поэтому она сохраняет длины векторов (в частности, переводит окружность $\left|v\right|  = R$ в себя).
+
+
+
+\vspace{5mm}
+
+\item $\Sigma = \left( \begin{matrix} \sigma_1 & 0 \\ 0 & \sigma_2 \end{matrix} \right)$ переводит окружность \[ x^2 + y^2 = 1\] в эллипс \[ \frac{(x')^2}{\sigma_1^2} + \frac{(y')^2}{\sigma_2^2}  = 1.\]
+
+
+
+\vspace{5mm}
+
+\item $V$ --- ортогональная матрица, поэтому она сохраняет длины векторов. И потому переводит эллипс с полуосями $a$ и $b$ в эллипс с такими же полуосями.
+
+
+\end{itemize}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Полуоси эллипса --- это половины его наибольшего и наименьшего диаметров.
+
+\vspace{5mm}
+
+Таким образом: \[ z = 2 \sigma_1, \qquad t = 2 \sigma_2.\]
+
+В данном случае \[ \sigma_1 = \sqrt{15 + \sqrt{221}}, \qquad \sigma_2 = \sqrt{15 - \sqrt{221}}.\]
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+\section{Матричные приближения меньшего ранга.}
+
+
+\begin{frame}[plain]\frametitle{Матричные приближения меньшего ранга} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+\textbf{Задача.} Найти наилучшее приближение ранга $r$ для матрицы $M$ в норме $\left\|\cdot \right\|_2$ или норме Фробениуса.
+
+
+
+
+\vspace{5mm}
+
+\textbf{Решение.} Взять сингулярное разложение \[ M = U \Sigma V^*\] и заменить \[ \Sigma = \left( \sigma_1, \dots, \sigma_k, 0, \dots\right)\] на \[ \Sigma = \left( \sigma_1, \dots, \sigma_r, 0, \dots\right).\] Проще говоря --- взять  первые $r$ сингулярных значений. 
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+\textbf{LifeHack.} Та же задача, но матрица $A$ симметрична: \[ A^T = A.\] Тогда все матрицы квадратные, и \[ A = U \Sigma U^*,\] т.е. $V = U$. 
+
+\vspace{5mm}
+
+
+
+
+Алгоритм нахождения как для SVD, только вместо $A^*A$ берём саму матрицу $A$.  
+
+\vspace{5mm}
+
+Это \textit{приведение квадратичной формы к главным осям}.
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Расстояние до приближения ранга $r$: 
+
+\vspace{5mm}
+
+\begin{itemize}
+
+\item  в норме $\left\| \cdot \right\|_2$: \[ \left\| M - M_r\right\|_2 = \sigma_{r+1}.\]
+
+\vspace{5mm}
+
+\item  в норме Фробениуса: \[ \left\| M - M_r\right\|_F = \sqrt{\sigma_{r+1}^2 + \dots + \sigma_{k}^2}.\]
+
+\end{itemize}
+
+
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+
+\textbf{Задача.}  Найти наилучшее приближение $A_1$ ранга $1$ для матрицы $A$ в  норме $\left\|\cdot \right\|_2$ и найти $\left\| A - A_1\right\|_2$, где   \[ A = \left( \begin{matrix} 6 & 0 & 6 \\ 0 & 12 & 6 \\ 6 & 6 & 9 \end{matrix} \right).\] 
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+\textbf{Решение.} Находим SVD разложение. В данном случае $A = A^T$.
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+\item Находим собственные значения \[ \det(A - \lambda E) = 0.\]
+
+Получаем \[ \lambda_1 = 18, \qquad \lambda_2 = 9, \qquad \lambda_3 = 0.\]
+
+
+\end{enumerate}
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+
+\item Находим собственные векторы \[ \det(A - \lambda_i E) v_i = 0.\]
+
+\begin{itemize}
+
+\item Первое собственное значение $ \lambda_1 = 18$: \[  \left( \begin{matrix} -12 & 0 & 6 \\ 0 & -6 & 6 \\ 6 & 6 & -9 \end{matrix} \right) v_1 =0 \qquad \Rightarrow \qquad v_1 = \frac{1}{3} \left( \begin{matrix} 1 \\ 2 \\ 2  \end{matrix}\right). \]
+
+\end{itemize}
+
+
+\end{enumerate}
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+\begin{itemize}
+
+\item Второе собственное значение $ \lambda_2= 9$: \[  \left( \begin{matrix} -3 & 0 & 6 \\ 0 & 3 & 6 \\ 6 & 6 & 0 \end{matrix} \right) v_2 =0 \qquad \Rightarrow \qquad v_2 = \frac{1}{3} \left( \begin{matrix}  2 \\ -2 \\ 1  \end{matrix}\right). \]
+
+\end{itemize}
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+\begin{itemize}
+
+\item Третье собственное значение $ \lambda_3 = 0$: \[  \left( \begin{matrix} 6 & 0 & 6 \\ 0 & 12 & 6 \\ 6 & 6 & 9 \end{matrix} \right) v_3 =0 \qquad \Rightarrow \qquad v_3 = \frac{1}{3} \left( \begin{matrix} - 2 \\ -1 \\ 2  \end{matrix}\right). \]
+
+\end{itemize}
+
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+
+Итак, SVD разложение: \[ A = U \Sigma U^T, \] где \[ \Sigma = \left( \begin{matrix} 18 & 0 & 0 \\ 0 & 9 & 0 \\ 0 & 0 & 0 \end{matrix}  \right),  \qquad U = \frac{1}{3}\left(  \begin{matrix}  1& 2 & -2 \\ 2 & -2 &  -1  \\  2 & 1& 2  \end{matrix}\right). \]
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Наилучшее приближение ранга 1: \begin{gather*} X_1 = U \Sigma_1 U^T = \\ = \frac{1}{9}\left(  \begin{matrix}  1& 2 & -2 \\ 2 & -2 &  -1  \\  2 & 1& 2  \end{matrix}\right)   \left( \begin{matrix} 18 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{matrix}  \right)  \left(  \begin{matrix}  1& 2 & 2 \\ 2 & -2 &  1  \\  -2 & -1& 2  \end{matrix}\right) = \\ =\left( \begin{matrix} 2 & 4 & 4 \\ 4 & 8 & 8 \\ 4 & 8 & 8 \end{matrix}  \right).   \end{gather*}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+\textbf{Ответ:} Приближение ранга 1: \[ A_1 = \left( \begin{matrix} 2 & 4 & 4 \\ 4 & 8 & 8 \\ 4 & 8 & 8 \end{matrix}  \right).\]  Расстояние: \[ \left\| A-A_1 \right\|_2 = \sigma_2 = 9. \] 
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+
+\textbf{Задача.}  Найти наилучшее приближение ранга $2$ по фробениусовой норме для матрицы \[ B = \left( \begin{matrix} 6 & 0 & 6 \\ 0 & 12 & 6 \\ 6 & 6 & 9 \end{matrix} \right).\] 
+
+
+\vspace{5mm}
+
+\textit{Указание} А какой ранг у матрицы?
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+\section{Оценки погрешности решений СЛУ.}
+
+\begin{frame}[plain]\frametitle{Оценки погрешности решений СЛУ} \tableofcontents[currentsection]\end{frame}
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Литература}
+%----------------------------------------------------------
+
+
+\begin{thebibliography}{10}
+  \beamertemplatebookbibitems
+  \bibitem{Gantmacher} Шевцов Г.С.,
+    \newblock {\em  Линейная алгебра: теория и прикладные аспекты},
+     \newblock {Глава 8.24. Оценка погрешности решения системы линейных уравнений},
+  \end{thebibliography}
+
+
+\vspace{5mm}
+
+\begin{thebibliography}{10}
+  \beamertemplatebookbibitems
+  \bibitem{Gantmacher} Тыртышников Е.Е.,
+    \newblock {\em  Методы численного анализа},
+     \newblock {Глава 3. Теория возмущений},
+  \end{thebibliography}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+На практике все данные даны с погрешностью. Поэтому вместо точно решения уравнения \[ A x = b\] мы получаем решение приближённого уравнения \[\left( A+ \Delta A\right)\hat{x} = b + \Delta b. \]
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Введём понятие:
+
+\vspace{5mm}
+
+\begin{itemize}
+
+\item Относительная погрешность: \[ \displaystyle \delta A = \frac{\left\| \Delta A\right\|}{\left\| A\right\|}.\] Аналогично для $\delta b$ и $\delta x$.
+
+\vspace{5mm}
+
+
+\item {\color{blue} Число обусловленности} матрицы $A$ \[\chi(A) = \left\| A\right\| \left\| A^{-1}\right\|. \] 
+
+
+\end{itemize}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+\subsection{Примеры оценок.}
+
+\begin{frame}[plain]\frametitle{Примеры оценок} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Оценки:
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+\item Для системы уравнений: \begin{gather*} \left( A+ \Delta A\right) (x + \Delta x) = b + \Delta b. \end{gather*} Неравенство: {\color{cyan} \[  \delta x \leq \chi(A) \left( \delta b + \delta A\right),\] }  для малых $\delta B, \delta A, \delta x$.
+
+\vspace{5mm}
+
+\item  Для обратной матрицы: {\color{cyan} \[ \delta A^{-1} \leq \frac{\chi(A) \delta A}{1-\chi(A) \delta A}. \]}
+
+
+\end{enumerate}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+\subsubsection{Решение системы.}
+
+\begin{frame}[plain]\frametitle{Решение системы} \tableofcontents[currentsection]\end{frame}
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+ \textbf{Задача}.  Дана система уравнений \[ \begin{cases} x_1 + x_2 = 3, \\ x_1 - x_2 = 4\end{cases}\] Элементы главной диагонали могут меняться на $\varepsilon_1$, а элементы правой части на $\varepsilon_2$. Оценить возможное изменение решения для нормы \[ \left\| A \right\|_2 =\sqrt {\lambda _{\max }\left(A^{*}A\right)}.\]  
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+ \textbf{Решение}. Воспользуемся неравенством  \[\delta x \leq \chi(A) \left( \delta b + \delta A\right)\]
+ 
+ 
+ 
+ 
+ В этой задаче \[ A = \left( \begin{matrix} 1 & 1 \\ 1 & -1 \end{matrix} \right), \qquad b =  \left( \begin{matrix} 3 \\ 4 \end{matrix} \right), \qquad x = \left( \begin{matrix} 3.5 \\ -0.5 \end{matrix} \right).  \] Находим евклидову норму векторов  \[ \left\| b\right\|  =  \sqrt{3^2 + 4^2} = 5, \qquad \left\| x\right\|  = \frac{5}{\sqrt{2}}.\]
+ 
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Находим $\left\| A\right\| $. Поскольку матрица симметрична \[ A = \left( \begin{matrix} 1 & 1 \\ 1 & -1 \end{matrix} \right)\]  её спектральная норма суть максимальное  по модулю собственное значение   \[ \left\| A \right\| = \sqrt {\lambda _{\max }\left(A^{*}A\right)} =  \max \left|\lambda\right|. \]
+
+
+
+
+ В данном случае \[ \det (A - \lambda E ) = \lambda^2 -2, \qquad \Rightarrow \lambda_i = \pm \sqrt{2}.\] Таким образом \[ \left\| A\right\| =\sqrt{2}.  \] 
+ 
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Найдём $\left\|A^{-1}\right\|$ и число обусловленности $\chi(A)$. Собственные значения $A^{-1}$ и $A$ взаимнообратны, поэтому \[ \left\| A^{-1}\right\| = \frac{1}{\min \left|\lambda_A\right|} = \frac{1}{\sqrt{2}} \qquad \Rightarrow \qquad \chi(A) =1.  \] 
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Найдём $\left\|\Delta b\right\|$ и $\left\|\Delta A\right\|$. В данной задаче \[ \Delta A  = \left( \begin{matrix} \varepsilon_1 & 0 \\ 0 & \varepsilon_1 \end{matrix} \right), \qquad \Delta b =  \left( \begin{matrix} \varepsilon_2 \\ \varepsilon_2 \end{matrix} \right).\] Поэтому \[ \left\| \Delta A\right\| = \left|\varepsilon_1\right|, \qquad   \left\| \Delta b \right\|  =  \sqrt{2}\left|\varepsilon_2\right|.\]
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Оценим наконец ошибку.   \[\left\| \Delta x\right\|  \leq \chi(A)\left\| x\right\| \left( \frac{\left\| \Delta b\right\| }{\left\| b\right\| }+ \frac{\left\| \Delta A\right\| }{\left\| A\right\| }\right).\]
+
+
+
+ Подставляем \begin{gather*} \left\| b\right\|  =   5, \qquad \left\| x\right\|  = \frac{5}{\sqrt{2}}, \qquad \left\| A \right\| = \sqrt{2}, \\ \chi(A) =1, \qquad  \left\| \Delta A\right\| = \left|\varepsilon_1\right|, \quad  \left\| \Delta b \right\| = \sqrt{2} \left|\varepsilon_2\right|.\end{gather*} 
+ 
+ 
+ 
+ 
+ Получаем ответ \[ \left\| \Delta x\right\|  \leq  \frac{5}{\sqrt{2}} \left( \frac{\sqrt{2} \left|\varepsilon_2\right| }{5}+ \frac{\left|\varepsilon_1\right| }{\sqrt{2} }\right). \]
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+
+\subsubsection{Обратная матрица.}
+
+\begin{frame}[plain]\frametitle{Обратная матрица} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+\textbf{Задача}.  Найдите приближенно обратную матрицу к матрице \[ A = \left( \begin{matrix} 1 & 3 \\ 1 & 4 \end{matrix} \right)  \]  и оцените погрешность приближения относительно равномерной нормы  $\| \cdot \|_{\infty}$, если элементы матрицы $A$ известны с абсолютной погрешностью $\varepsilon = 0.01$.
+
+
+
+
+\vspace{5mm}
+
+\textbf{Решение}. \[A^{-1} =  \left( \begin{matrix} 4 & -3 \\ -1 & 1 \end{matrix} \right)  \] Погрешность оценивается по формуле    \[ \delta A^{-1} \leq \frac{\chi(A) \delta A}{1-\chi(A) \delta A}. \]
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Для матриц \[ A = \left( \begin{matrix} 1 & 3 \\ 1 & 4 \end{matrix} \right), \qquad A^{-1} =  \left( \begin{matrix} 4 & -3 \\ -1 & 1 \end{matrix} \right)  \] и погрешности $\varepsilon = 0.01$ получаем \[ \chi(A) = 35, \qquad \delta A = \frac{0.02}{5} = 0.004\] 
+
+
+
+
+Откуда
+ \[ \delta A^{-1} \leq \frac{\chi(A) \delta A}{1-\chi(A) \delta A} \leq 0.162791 \]
+ 
+ 
+ \textbf{Задача решена}.
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+\subsection{Доказательство неравенств.}
+
+\begin{frame}[plain]\frametitle{Доказательство неравенств} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+\textbf{Задача}. Доказать, что {\color{cyan}  \[ \delta A^{-1} \leq \frac{\chi(A) \delta A}{1-\chi(A) \delta A}. \]}
+
+
+
+\vspace{5mm}
+
+Действительно,  \[ \delta A^{-1} = \frac{\left\| (A + \Delta A)^{-1} - A^{-1} \right\|}{\left\| A^{-1} \right\|}  = \frac{\left\| -A^{-1} B \right\|}{\left\| A^{-1} \right\|} \leq \frac{\left\| A^{-1} \right\|}{\left\| A^{-1} \right\|} \left\|B \right\|,  \]   где $B = E -  (E + A^{-1} \Delta A)^{-1}$.
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Нужно оценить $\left\| E -  (E + A^{-1} \Delta A)^{-1}\right\|$.
+
+
+
+\vspace{5mm}
+
+Далее для любого $Y$  т.,ч. $\left|Y\right\| <1$ выполено \[ (E - Y)^{-1} = E + Y + Y^2 + Y^3 + \dots \] \[ \left\| E -  (E - Y)^{-1}\right\| \leq \sum_{k=1}^{\infty} \left\| Y\right\|^k = \frac{\left\|Y\right\|}{1- \left\|Y\right\|}. \]
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Итак, \[  \left\| E -  (E + A^{-1} \Delta A)^{-1}\right\| \leq  \frac{\left\| A^{-1} \Delta A\right\|}{1- \left\| A^{-1} \Delta A\right\|}  \]
+
+
+
+Остаётся воспользоваться  \[ \left\| A^{-1} \Delta A\right\| \leq \left\| A^{-1} \right\| \left\| \Delta A\right\| = \left\| A^{-1} \right\|  \left\| A \right\|\frac{\left\| \Delta A\right\|}{ \left\| A \right\|} = \chi(A) \delta A \] 
+
+
+
+Так и получаем требуемую оценку  \[ \delta A^{-1} \leq \frac{\chi(A) \delta A}{1-\chi(A) \delta A}. \]
+
+Ч.Т.Д.
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+ \textbf{Задача}. Если \begin{gather*} \left( A+ \Delta A\right)\hat{x} = b + \Delta b, \\ \Delta x = \hat{x} - x, \end{gather*} то \[  \delta x \leq\frac{ \chi(A)}{ 1 - \delta A \cdot  \chi(A)} \left( \delta b + \delta A\right),\]  для малых $\delta B, \delta A, \delta x$.
+
+
+\vspace{5mm}
+
+
+\textbf{Следствие}. Отсюда получается приближённая оценка \[  \delta x \leq \chi(A) \left( \delta b + \delta A\right).\]  
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Докажем, что \[  \delta x \leq \chi(A) \left( \delta b + \delta A\right).\]
+
+\vspace{2mm} 
+
+
+
+
+\begin{enumerate}
+
+
+\item \textbf{Шаг 1.} {\color{cyan} Оценим $\delta x$.} Из условия \[ \begin{cases} \left( A+ \Delta A\right)(x + \Delta{x}) = b + \Delta b,  \\
+%
+ Ax  = b, \end{cases}  \] выражаем $\Delta x$. Получаем \[ \Delta x= \left( A+ \Delta A\right)^{-1} \left(\Delta b - \Delta A x \right). \] 
+
+
+\end{enumerate}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+
+Дальше пользуемся тем, что \[ \left\| AB \right\| \leq \left\| A \right\|  \left\|B\right\|.\] Применяем это к  \[ \Delta x= \left( A+ \Delta A\right)^{-1} \left(\Delta b - \Delta A x \right). \]  
+
+
+
+Получаем \[ \frac{\left\| \Delta x\right\| }{\left\| x\right\| } 
+%
+\leq \left\| (A+ \Delta A)^{-1} \right\| \left( \frac{\left\|\Delta b \right\|}{\left\|x \right\|} + \left\|\Delta A \right\| \right). \] 
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+Далее воспользуемся тем, что \[ \left\| b \right\| = \left\| Ax \right\| \leq\left\| A \right\| \left\| x \right\|. \]  Перепишем это в виде \[ \frac{1}{\left\| x \right\|} \leq  \frac{\left\| A \right\|}{ \left\| b \right\|}. \] 
+
+
+
+
+Подставляем это в  \[ \frac{\left\| \Delta x\right\| }{\left\| x\right\| } 
+%
+\leq \left\| (A+ \Delta A)^{-1} \right\| \left( \frac{\left\|\Delta b \right\|}{\left\|x \right\|} + \left\|\Delta A \right\| \right). \] 
+
+
+
+
+Получаем  \[ \frac{\left\| \Delta x\right\| }{\left\| x\right\| } 
+%
+\leq \left\| (A+ \Delta A)^{-1} \right\| \left\| A \right\| \left( \frac{\left\|\Delta b \right\|}{\left\|b \right\|} + \frac{\left\|\Delta A \right\| }{\left\|A \right\|} \right). \] 
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Итак, мы доказали, что \[ \delta x \leq \left\| (A+ \Delta A)^{-1} \right\| \left\| A \right\| \left(\delta b + \delta A\right). \] 
+
+
+
+
+
+\begin{enumerate}
+
+\setcounter{enumi}{2}
+
+
+\item \textbf{Шаг 2.} {\color{cyan} Оценим $ \left\| (A+ \Delta A)^{-1} \right\|$. }
+
+\vspace{5mm}
+
+Начнём с тождества \[ (A+\Delta A)^{-1}\left(A+\Delta A\right)  = E.\] 
+
+
+
+
+Домножим его справа на $A^{-1}$, получим \[ (A+\Delta A)^{-1}\left(E+\Delta  A \cdot A^{-1}\right)  = A^{-1}.\]
+
+
+
+
+Перепишем это в виде \[ (A+\Delta A)^{-1} = A^{-1} -  (A+\Delta A)^{-1}\Delta  A \cdot A^{-1}. \] 
+
+
+
+\end{enumerate}
+
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+Итак, \[ (A+\Delta A)^{-1} = A^{-1} -  (A+\Delta A)^{-1}\Delta  A \cdot A^{-1}. \]  Беря нормы, получаем: \[  \left\|(A+\Delta A)^{-1}\right\| \leq \left\|A^{-1}\right\| + \left\| (A+\Delta A)^{-1} \right\| \left|\Delta  A \cdot A^{-1} \right\|.\]
+
+
+
+Выражаем искомую норму $ \left\|(A+\Delta A)^{-1}\right\|$. При $ \left\|\Delta  A \cdot A^{-1} \right\| < 1$ получаем  \[  \left\|(A+\Delta A)^{-1}\right\| \leq \frac{\left\|A^{-1}\right\| }{1 -  \left\|\Delta  A \cdot A^{-1} \right\|}   \] Заметим, что \[ \left\|\Delta  A \cdot A^{-1} \right\| \leq \frac{\left\|\Delta  A \right\|}{\left\| A\right\| }\cdot \left\| A \right\| \left\|A^{-1} \right\| = \delta A \cdot  \chi(A).\]  Поэтому \[  \left\|(A+\Delta A)^{-1}\right\| \leq \frac{\left\|A^{-1}\right\| }{1 - \delta A \cdot  \chi(A)}.  \]
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 9}
+%----------------------------------------------------------
+
+
+
+\begin{enumerate}
+
+\setcounter{enumi}{3}
+
+
+\item \textbf{Шаг 3.} {\color{cyan} Докажем требуемое неравенство  \[  \delta x \leq \chi(A) \left( \delta b + \delta A\right).\]} 
+
+
+
+Подставляем оценку  \[  \left\|(A+\Delta A)^{-1}\right\| \leq \frac{\left\|A^{-1}\right\| }{1 -  \delta A \cdot \chi(A)}   \]  в неравенство  \[ \delta x \leq \left\| (A+ \Delta A)^{-1} \right\| \left\| A \right\| \left(\delta b + \delta A\right). \]  
+
+
+
+Получаем  \[  \delta x \leq \frac{\chi(A)}{1 - \delta A \cdot  \chi(A)} \left( \delta b + \delta A\right).\]
+
+
+
+
+ Мы получили требуемое неравенство. Ч.Т.Д.
+
+
+
+\end{enumerate}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+
+
+\end{document}
+
+
+

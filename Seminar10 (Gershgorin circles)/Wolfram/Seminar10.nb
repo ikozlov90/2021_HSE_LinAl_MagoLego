@@ -1,0 +1,905 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     30092,        896]
+NotebookOptionsPosition[     28667,        842]
+NotebookOutlinePosition[     29011,        857]
+CellTagsIndexPosition[     28968,        854]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"P", " ", "=", " ", 
+  RowBox[{"Eigenvalues", "[", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"5", "0.3"},
+       {
+        RowBox[{"-", "0.5"}], "2"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Circle", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         StyleBox["5", "TI"], ",", "0"}], "}"}], ",", "0.3"}], "]"}], ",", 
+     RowBox[{"Circle", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}], ",", "0.5"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+       RowBox[{"Point", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"P", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+      "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+       RowBox[{"Point", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"P", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+      "}"}]}], "}"}], ",", " ", 
+   RowBox[{"Axes", "\[Rule]", "True"}], ",", " ", 
+   RowBox[{"AxesOrigin", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8223303938074512`*^9, 3.822330413131789*^9}, {
+  3.822330466096857*^9, 3.8223305897783184`*^9}, {3.822330638103202*^9, 
+  3.8223307019593544`*^9}, {3.824384388385171*^9, 3.8243843901195297`*^9}, {
+  3.8243844715882907`*^9, 3.8243845116976547`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"4.949137674618944`", ",", "2.0508623253810563`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.8223304716978683`*^9, 3.8223305581643715`*^9}, 
+   3.8223305901483755`*^9, {3.822330654145913*^9, 3.8223307027683544`*^9}, 
+   3.824384391322659*^9, {3.8243845024945345`*^9, 3.824384513510154*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{CircleBox[{5, 0}, 0.3], CircleBox[{2, 0}, 0.5], 
+   {PointSize[Large], PointBox[{4.949137674618944, 0}]}, 
+   {PointSize[Large], PointBox[{2.0508623253810563`, 0}]}},
+  Axes->True,
+  AxesOrigin->{0, 0}]], "Output",
+ CellChangeTimes->{{3.8223304716978683`*^9, 3.8223305581643715`*^9}, 
+   3.8223305901483755`*^9, {3.822330654145913*^9, 3.8223307027683544`*^9}, 
+   3.824384391322659*^9, {3.8243845024945345`*^9, 3.824384513525782*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Graphics", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          StyleBox["5", "TI"], ",", "0"}], "}"}], ",", "0.5"}], "]"}], ",", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"2", ",", "0"}], "}"}], ",", "0.3"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"P", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+       "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"P", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+       "}"}]}], "}"}], ",", " ", 
+    RowBox[{"Axes", "\[Rule]", "True"}], ",", " ", 
+    RowBox[{"AxesOrigin", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8223309035603585`*^9, 3.8223309043933477`*^9}, {
+   3.822331153160271*^9, 3.8223311572402706`*^9}, 3.8243845401820307`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{CircleBox[{5, 0}, 0.5], CircleBox[{2, 0}, 0.3], 
+   {PointSize[Large], PointBox[{4.949137674618944, 0}]}, 
+   {PointSize[Large], PointBox[{2.0508623253810563`, 0}]}},
+  Axes->True,
+  AxesOrigin->{0, 0}]], "Output",
+ CellChangeTimes->{3.8223311580452695`*^9, 3.8243845414007874`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"P", " ", "=", " ", 
+    RowBox[{"Eigenvalues", "[", 
+     TagBox[
+      RowBox[{"(", GridBox[{
+         {"3", "0.2", 
+          RowBox[{"-", "0.2"}]},
+         {"0", "2", "0.1"},
+         {"0.1", "0.4", "1"}
+        }], ")"}],
+      Function[BoxForm`e$, 
+       MatrixForm[BoxForm`e$]]], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0"}], "}"}], ",", "0.5"}], "]"}], ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"2", ",", "0"}], "}"}], ",", "0.1"}], "]"}], ",", " ", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "0"}], "}"}], ",", "0.4"}], "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"P", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+        "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"P", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+        "}"}], ",", "  ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"P", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+        "}"}]}], "}"}], ",", " ", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", " ", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8223315082482257`*^9, 3.822331509398222*^9}, {
+  3.8223315443586435`*^9, 3.8223315763310413`*^9}, {3.8243846274789047`*^9, 
+  3.8243846511507826`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2.9907807057775697`", ",", "2.0373058032773472`", ",", 
+   "0.9719134909450814`"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.8223315768880415`*^9, {3.8243846443851542`*^9, 3.8243846523851557`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{CircleBox[{1, 0}, 0.5], CircleBox[{2, 0}, 0.1], 
+   CircleBox[{3, 0}, 0.4], 
+   {PointSize[Large], PointBox[{2.9907807057775697`, 0}]}, 
+   {PointSize[Large], PointBox[{2.0373058032773472`, 0}]}, 
+   {PointSize[Large], PointBox[{0.9719134909450814, 0}]}},
+  Axes->True,
+  AxesOrigin->{0, 0}]], "Output",
+ CellChangeTimes->{
+  3.8223315768880415`*^9, {3.8243846443851542`*^9, 3.8243846524007816`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Graphics", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}], ",", "0.3"}], "]"}], ",", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"2", ",", "0"}], "}"}], ",", "0.6"}], "]"}], ",", " ", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"3", ",", "0"}], "}"}], ",", "0.1"}], "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"P", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+       "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"P", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+       "}"}], ",", "  ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"P", "[", 
+            RowBox[{"[", "3", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+       "}"}]}], "}"}], ",", " ", 
+    RowBox[{"Axes", "\[Rule]", "True"}], ",", " ", 
+    RowBox[{"AxesOrigin", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.822331580453039*^9, 3.822331603027347*^9}, {
+  3.824384662369528*^9, 3.824384662760157*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{CircleBox[{1, 0}, 0.3], CircleBox[{2, 0}, 0.6], 
+   CircleBox[{3, 0}, 0.1], 
+   {PointSize[Large], PointBox[{2.9907807057775697`, 0}]}, 
+   {PointSize[Large], PointBox[{2.0373058032773472`, 0}]}, 
+   {PointSize[Large], PointBox[{0.9719134909450814, 0}]}},
+  Axes->True,
+  AxesOrigin->{0, 0}]], "Output",
+ CellChangeTimes->{3.822331603648346*^9, 3.8243846637757797`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0"}], "}"}], ",", "0.3"}], "]"}], ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"2", ",", "0"}], "}"}], ",", "0.1"}], "]"}], ",", " ", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "0"}], "}"}], ",", "0.1"}], "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"P", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+        "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"P", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+        "}"}], ",", "  ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "Large", "]"}], ",", " ", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"P", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", " ", "0"}], "}"}], "]"}]}], 
+        "}"}]}], "}"}], ",", " ", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", " ", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.822331909184375*^9, 3.8223319158188496`*^9}, {
+  3.8243846683382816`*^9, 3.8243846687914104`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{CircleBox[{1, 0}, 0.3], CircleBox[{2, 0}, 0.1], 
+   CircleBox[{3, 0}, 0.1], 
+   {PointSize[Large], PointBox[{2.9907807057775697`, 0}]}, 
+   {PointSize[Large], PointBox[{2.0373058032773472`, 0}]}, 
+   {PointSize[Large], PointBox[{0.9719134909450814, 0}]}},
+  Axes->True,
+  AxesOrigin->{0, 0}]], "Output",
+ CellChangeTimes->{3.8223319188608503`*^9, 3.824384669338294*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"P", " ", "=", " ", 
+   RowBox[{"Eigenvalues", "[", 
+    TagBox[
+     RowBox[{"(", GridBox[{
+        {"3", 
+         RowBox[{"Cos", "[", "x", "]"}], 
+         RowBox[{
+          RowBox[{"Cos", "[", "x", "]"}], "*", 
+          RowBox[{"Cos", "[", "x", "]"}]}]},
+        {"0", "5", 
+         RowBox[{
+          RowBox[{"Sin", "[", "x", "]"}], " ", "*", " ", 
+          RowBox[{"Sin", "[", "x", "]"}]}]},
+        {
+         RowBox[{"3", " ", 
+          RowBox[{"Sin", "[", "x", "]"}], " ", "*", " ", 
+          RowBox[{"Sin", "[", "x", "]"}], " "}], "3", "10"}
+       }], ")"}],
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8243846990570307`*^9, 3.8243847456820517`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Root", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2298"}], "-", 
+       RowBox[{"6", " ", 
+        RowBox[{"Cos", "[", "x", "]"}]}], "-", 
+       RowBox[{"72", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"2", " ", "x"}], "]"}]}], "+", 
+       RowBox[{"9", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"3", " ", "x"}], "]"}]}], "-", 
+       RowBox[{"30", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"4", " ", "x"}], "]"}]}], "-", 
+       RowBox[{"3", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"5", " ", "x"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1490", "+", 
+          RowBox[{"24", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"2", " ", "x"}], "]"}]}], "+", 
+          RowBox[{"6", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"4", " ", "x"}], "]"}]}]}], ")"}], " ", "#1"}], "-", 
+       RowBox[{"288", " ", 
+        SuperscriptBox["#1", "2"]}], "+", 
+       RowBox[{"16", " ", 
+        SuperscriptBox["#1", "3"]}]}], "&"}], ",", "1"}], "]"}], ",", 
+   RowBox[{"Root", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2298"}], "-", 
+       RowBox[{"6", " ", 
+        RowBox[{"Cos", "[", "x", "]"}]}], "-", 
+       RowBox[{"72", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"2", " ", "x"}], "]"}]}], "+", 
+       RowBox[{"9", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"3", " ", "x"}], "]"}]}], "-", 
+       RowBox[{"30", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"4", " ", "x"}], "]"}]}], "-", 
+       RowBox[{"3", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"5", " ", "x"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1490", "+", 
+          RowBox[{"24", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"2", " ", "x"}], "]"}]}], "+", 
+          RowBox[{"6", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"4", " ", "x"}], "]"}]}]}], ")"}], " ", "#1"}], "-", 
+       RowBox[{"288", " ", 
+        SuperscriptBox["#1", "2"]}], "+", 
+       RowBox[{"16", " ", 
+        SuperscriptBox["#1", "3"]}]}], "&"}], ",", "2"}], "]"}], ",", 
+   RowBox[{"Root", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2298"}], "-", 
+       RowBox[{"6", " ", 
+        RowBox[{"Cos", "[", "x", "]"}]}], "-", 
+       RowBox[{"72", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"2", " ", "x"}], "]"}]}], "+", 
+       RowBox[{"9", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"3", " ", "x"}], "]"}]}], "-", 
+       RowBox[{"30", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"4", " ", "x"}], "]"}]}], "-", 
+       RowBox[{"3", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"5", " ", "x"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1490", "+", 
+          RowBox[{"24", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"2", " ", "x"}], "]"}]}], "+", 
+          RowBox[{"6", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"4", " ", "x"}], "]"}]}]}], ")"}], " ", "#1"}], "-", 
+       RowBox[{"288", " ", 
+        SuperscriptBox["#1", "2"]}], "+", 
+       RowBox[{"16", " ", 
+        SuperscriptBox["#1", "3"]}]}], "&"}], ",", "3"}], "]"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.824384747228904*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Slider", "[", 
+     RowBox[{
+      RowBox[{"Dynamic", "[", "t", "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"2", "Pi"}]}], "}"}]}], "]"}], ",", 
+    RowBox[{"Dynamic", "[", " ", "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{
+       RowBox[{"{", " ", 
+        RowBox[{"Red", ",", 
+         RowBox[{"Circle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"3", ",", "0"}], "}"}], ",", 
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", "t", "]"}], " ", "+", " ", 
+             SuperscriptBox[
+              RowBox[{"Cos", "[", "t", "]"}], "2"]}], "]"}]}], "]"}], ",", 
+         RowBox[{"Circle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"5", ",", "0"}], "}"}], ",", 
+           RowBox[{"Abs", "[", 
+            SuperscriptBox[
+             RowBox[{"Sin", "[", "t", "]"}], "2"], "]"}]}], "]"}], ",", " ", 
+         RowBox[{"Circle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"10", ",", "0"}], "}"}], ",", 
+           RowBox[{"Abs", "[", 
+            RowBox[{"3", " ", "+", " ", 
+             RowBox[{"3", " ", 
+              SuperscriptBox[
+               RowBox[{"Sin", "[", "t", "]"}], "2"]}]}], "]"}]}], "]"}], ",", 
+         " ", "Blue", ",", 
+         RowBox[{"Circle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"3", ",", "0"}], "}"}], ",", 
+           RowBox[{"Abs", "[", 
+            RowBox[{"3", " ", 
+             SuperscriptBox[
+              RowBox[{"Sin", "[", "t", "]"}], "2"]}], "]"}]}], "]"}], ",", 
+         RowBox[{"Circle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"5", ",", "0"}], "}"}], ",", 
+           RowBox[{"Abs", "[", 
+            RowBox[{"3", "+", " ", 
+             RowBox[{"Cos", "[", "t", "]"}]}], " ", "]"}]}], "]"}], ",", " ", 
+         RowBox[{"Circle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"10", ",", "0"}], "}"}], ",", "1"}], "]"}]}], "}"}], ",", 
+       "  ", 
+       RowBox[{"Axes", "\[Rule]", "True"}], ",", " ", 
+       RowBox[{"AxesOrigin", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
+       RowBox[{"ImageSize", "\[Rule]", "500"}]}], "]"}], " ", "]"}]}], "}"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.824384759650817*^9, 3.824384760541402*^9}, {
+  3.824384803510154*^9, 3.824384956869534*^9}, {3.824385122088292*^9, 
+  3.8243851494789033`*^9}, {3.8243852630570273`*^9, 3.8243854857601585`*^9}, {
+  3.824385526478906*^9, 3.824385543088281*^9}, {3.824386127182034*^9, 
+  3.8243861392132826`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   SliderBox[Dynamic[
+     BoxForm`RemapVariable[$CellContext`t, {0, 2 Pi}], 
+     BoxForm`RemapValue[#, $CellContext`t, {0, 2 Pi}]& ], {0, 1}], ",", 
+   DynamicBox[ToBoxes[
+     Graphics[{Red, 
+       Circle[{3, 0}, 
+        Abs[Cos[$CellContext`t] + Cos[$CellContext`t]^2]], 
+       Circle[{5, 0}, 
+        Abs[Sin[$CellContext`t]^2]], 
+       Circle[{10, 0}, 
+        Abs[3 + 3 Sin[$CellContext`t]^2]], Blue, 
+       Circle[{3, 0}, 
+        Abs[3 Sin[$CellContext`t]^2]], 
+       Circle[{5, 0}, 
+        Abs[3 + Cos[$CellContext`t]]], 
+       Circle[{10, 0}, 1]}, Axes -> True, AxesOrigin -> {0, 0}, ImageSize -> 
+      500], StandardForm],
+    ImageSizeCache->{500., {141., 146.}}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.824385455900776*^9, 3.8243854865570364`*^9, {3.8243855371195345`*^9, 
+   3.824385543572657*^9}, {3.8243861403382807`*^9, 3.8243861506664104`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"{", " ", 
+      RowBox[{"Red", ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           RowBox[{"Cos", "[", "x", "]"}], " ", "+", " ", 
+           SuperscriptBox[
+            RowBox[{"Cos", "[", "x", "]"}], "2"]}], "]"}]}], "]"}], ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"5", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          SuperscriptBox[
+           RowBox[{"Sin", "[", "x", "]"}], "2"], "]"}]}], "]"}], ",", " ", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"10", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"3", " ", "+", " ", 
+           RowBox[{"3", " ", 
+            SuperscriptBox[
+             RowBox[{"Sin", "[", "x", "]"}], "2"]}]}], "]"}]}], "]"}], ",", 
+       " ", "Blue", ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"3", " ", 
+           SuperscriptBox[
+            RowBox[{"Sin", "[", "x", "]"}], "2"]}], "]"}]}], "]"}], ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"5", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"3", "+", " ", 
+           RowBox[{"Cos", "[", "x", "]"}]}], " ", "]"}]}], "]"}], ",", " ", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"10", ",", "0"}], "}"}], ",", "1"}], "]"}]}], "}"}], ",", 
+     "  ", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", " ", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}]}], "]"}], " ", "/.", 
+   RowBox[{"{", 
+    RowBox[{"x", "\[Rule]", 
+     RowBox[{"Pi", "/", "6"}]}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.8243860315882826`*^9, 3.8243861458383064`*^9}, {
+  3.8243862915414023`*^9, 3.8243862921195297`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[1, 0, 0], 
+    CircleBox[{3, 0}, NCache[
+     Rational[3, 4] + Rational[1, 2] 3^Rational[1, 2], 1.6160254037844386`]], 
+    CircleBox[{5, 0}, NCache[Rational[1, 4], 0.25]], 
+    CircleBox[{10, 0}, NCache[Rational[15, 4], 3.75]]}, 
+   {RGBColor[0, 0, 1], CircleBox[{3, 0}, NCache[Rational[3, 4], 0.75]], 
+    CircleBox[{5, 0}, NCache[
+     3 + Rational[1, 2] 3^Rational[1, 2], 3.8660254037844384`]], 
+    CircleBox[{10, 0}]}},
+  Axes->True,
+  AxesOrigin->{0, 0},
+  ImageSize->500]], "Output",
+ CellChangeTimes->{{3.8243860615257845`*^9, 3.8243860816664085`*^9}, {
+  3.82438611879142*^9, 3.8243861479164248`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"{", " ", 
+      RowBox[{"Red", ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           RowBox[{"Cos", "[", "x", "]"}], " ", "+", " ", 
+           SuperscriptBox[
+            RowBox[{"Cos", "[", "x", "]"}], "2"]}], "]"}]}], "]"}], ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"5", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          SuperscriptBox[
+           RowBox[{"Sin", "[", "x", "]"}], "2"], "]"}]}], "]"}], ",", " ", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"10", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"3", " ", "+", " ", 
+           RowBox[{"3", " ", 
+            SuperscriptBox[
+             RowBox[{"Sin", "[", "x", "]"}], "2"]}]}], "]"}]}], "]"}], ",", 
+       " ", "Blue", ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"3", " ", 
+           SuperscriptBox[
+            RowBox[{"Sin", "[", "x", "]"}], "2"]}], "]"}]}], "]"}], ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"5", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"3", "+", " ", 
+           RowBox[{"Cos", "[", "x", "]"}]}], " ", "]"}]}], "]"}], ",", " ", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"10", ",", "0"}], "}"}], ",", "1"}], "]"}]}], "}"}], ",", 
+     "  ", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", " ", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}]}], "]"}], " ", "/.", 
+   RowBox[{"{", 
+    RowBox[{"x", "\[Rule]", 
+     RowBox[{"Pi", "/", "3"}]}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.8243860705101614`*^9, 3.8243860712601614`*^9}, {
+  3.824386175635152*^9, 3.8243862348539033`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[1, 0, 0], CircleBox[{3, 0}, NCache[Rational[3, 4], 0.75]], 
+    CircleBox[{5, 0}, NCache[Rational[3, 4], 0.75]], 
+    CircleBox[{10, 0}, NCache[Rational[21, 4], 5.25]]}, 
+   {RGBColor[0, 0, 1], CircleBox[{3, 0}, NCache[Rational[9, 4], 2.25]], 
+    CircleBox[{5, 0}, NCache[Rational[7, 2], 3.5]], CircleBox[{10, 0}]}},
+  Axes->True,
+  AxesOrigin->{0, 0},
+  ImageSize->500]], "Output",
+ CellChangeTimes->{
+  3.8243860839945283`*^9, {3.8243861701195292`*^9, 3.8243862355257854`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"{", " ", 
+      RowBox[{"Red", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{"3", ",", "0"}], "}"}], "]"}]}], "}"}], ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"5", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          SuperscriptBox[
+           RowBox[{"Sin", "[", "x", "]"}], "2"], "]"}]}], "]"}], ",", " ", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"10", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"3", " ", "+", " ", 
+           RowBox[{"3", " ", 
+            SuperscriptBox[
+             RowBox[{"Sin", "[", "x", "]"}], "2"]}]}], "]"}]}], "]"}], ",", 
+       " ", "Blue", ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"3", " ", 
+           SuperscriptBox[
+            RowBox[{"Sin", "[", "x", "]"}], "2"]}], "]"}]}], "]"}], ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"5", ",", "0"}], "}"}], ",", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"3", "+", " ", 
+           RowBox[{"Cos", "[", "x", "]"}]}], " ", "]"}]}], "]"}], ",", " ", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"10", ",", "0"}], "}"}], ",", "1"}], "]"}]}], "}"}], ",", 
+     "  ", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", " ", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}]}], "]"}], " ", "/.", 
+   RowBox[{"{", 
+    RowBox[{"x", "\[Rule]", 
+     RowBox[{"Pi", "/", "2"}]}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.8243862462445307`*^9, 3.824386298432028*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[1, 0, 0], 
+    {PointSize[Large], PointBox[{3, 0}]}, CircleBox[{5, 0}], 
+    CircleBox[{10, 0}, 6]}, 
+   {RGBColor[0, 0, 1], CircleBox[{3, 0}, 3], CircleBox[{5, 0}, 3], 
+    CircleBox[{10, 0}]}},
+  Axes->True,
+  AxesOrigin->{0, 0},
+  ImageSize->500]], "Output",
+ CellChangeTimes->{{3.824386250103917*^9, 3.8243862991664147`*^9}}]
+}, Open  ]]
+},
+WindowSize->{1520, 727},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 2108, 59, 64, "Input"],
+Cell[2690, 83, 328, 5, 30, "Output"],
+Cell[3021, 90, 462, 8, 103, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3520, 103, 1348, 38, 52, "Input"],
+Cell[4871, 143, 310, 6, 100, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5218, 154, 2242, 64, 163, "Input"],
+Cell[7463, 220, 241, 6, 30, "Output"],
+Cell[7707, 228, 428, 9, 126, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8172, 242, 1743, 51, 72, "Input"],
+Cell[9918, 295, 397, 8, 157, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10352, 308, 1833, 52, 92, "Input"],
+Cell[12188, 362, 397, 8, 93, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12622, 375, 782, 22, 80, "Input"],
+Cell[13407, 399, 3344, 100, 77, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16788, 504, 2727, 71, 98, "Input"],
+Cell[19518, 577, 917, 23, 304, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20472, 605, 2255, 62, 96, "Input"],
+Cell[22730, 669, 653, 15, 302, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23420, 689, 2230, 62, 76, "Input"],
+Cell[25653, 753, 522, 11, 362, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26212, 769, 2065, 58, 76, "Input"],
+Cell[28280, 829, 371, 10, 391, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

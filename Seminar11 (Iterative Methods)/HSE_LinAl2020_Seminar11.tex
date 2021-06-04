@@ -1,0 +1,626 @@
+\documentclass[9pt]{beamer}
+
+
+
+
+\usepackage{beamerthemesplit}
+\usetheme{Boadilla}
+\usecolortheme{orchid}
+
+
+
+
+
+ % \usepackage[cp866]{inputenc}                %%% Є®¤Ёа®ўЄ  DOS
+  \usepackage[cp1251]{inputenc}
+%  \usepackage[T2A]{fontenc}                %%% ???
+%\usepackage[english,russian]{babel}
+%\usepackage[russian]{babel}
+ \usepackage[OT1]{fontenc}
+%\usepackage[english]{babel}
+\usepackage[russian]{babel}
+
+\usepackage{amssymb,latexsym, amsmath, mathdots}
+
+\usepackage{amscd}
+\usepackage{multirow}
+\usepackage{comment}
+
+\usepackage{epstopdf}
+
+
+
+%\usepackage[table]{xcolor} %colored cells
+
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark} %arrows in tables
+
+
+\usepackage{mnsymbol} % udots in matrices
+
+
+ \usepackage{pgfpages}
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen=bottom}
+%% \setbeameroption{show notes on second screen}
+
+%\setbeamercolor{alerted text}{fg=red!80!black}
+
+
+% \setbeamercolor{alerted text}{fg=blue!50!green}
+% \setbeamercolor{fortheorem}{bg=blue!15!white}
+% \setbeamercolor{EMPF}{bg=blue!25!white}
+% \setbeamercolor{EMPF2}{bg=blue!35!white}
+
+%\setbeamersize{text margin left=5.mm, text margin right=5.mm}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+
+%\def\emphbox#1#2#3{\begin{beamercolorbox}[wd=#2, ht=#1, center, colsep=1.mm]{EMPF} #3 \end{beamercolorbox}}
+
+%---------------------------------------------------------------------------------------------------------------------------
+
+
+%\advance\leftskip-5.mm
+
+
+
+%***************************************************************************************************************************
+
+\theoremstyle{theorem}
+\newtheorem{mytheorem}[theorem]{Теорема}
+\newtheorem{mylemma}[theorem]{Лемма}
+\newtheorem{mycorollary}[theorem]{Следствие}
+
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{assertion}[theorem]{Утверждение}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{assumption}[theorem]{Предположение}
+
+\newtheorem{convention}[theorem]{Договорённость}
+\newtheorem{question}[theorem]{Вопрос}
+%\newtheorem{mydefinition}{mydefinition}
+
+\theoremstyle{definition}
+\newtheorem{mydefinition}[theorem]{Определение}
+\newtheorem{myexample}[theorem]{Пример}
+
+
+
+%***************************************************************************************************************************
+
+\chardef\No=194
+\newcommand{\bd}{{\rm bd}}
+\newcommand{\cl}{{\rm cl}}
+\newcommand{\ind}{{\rm ind}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\inj}{{\sl in}}
+\newcommand{\pr}{{\rm pr}}
+\newcommand{\st}{{\rm St}}
+
+
+\DeclareMathOperator{\sgrad}{sgrad}
+
+\DeclareMathOperator{\cnt}{const}
+
+\DeclareMathOperator{\Aut}{Aut}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+
+\DeclareMathOperator{\Int}{Int}
+
+
+\DeclareMathOperator{\tr}{tr}
+
+\DeclareMathOperator{\Mat}{Mat}
+
+
+
+
+
+
+
+%****************************************************************************
+\newcommand{\Ker}{\mathrm{Ker}\,\,}
+\newcommand{\Ann}{\mathrm{Ann}\,\,}
+
+\newcommand{\Imm}{\mathrm{Im}\,\,}
+
+\newcommand{\rk}{\mathrm{rk}\,\,}
+
+\newcommand{\const}{\mathrm{const}}
+
+
+
+\DeclareMathOperator{\Pen}{\mathcal{P}}
+
+
+\DeclareMathOperator{\Core}{K}
+
+
+\DeclareMathOperator{\BLG}{\operatorname{BLG}}
+
+\DeclareMathOperator{\AutBP}{\operatorname{Aut}(V, \mathcal{P})}
+
+
+\def\minus{\hbox{-}}   %Sign of minus in big matrices
+
+\usepackage{multirow}  %Columns spanning multiple rows
+
+\usepackage[normalem]{ulem} %underline that can break lines
+
+%****************************************************************************
+
+
+
+\title% [] (optional, only for long titles)
+{МАГОЛЕГО\\ Линейная алгебра в приложениях \\ Семинар 11}
+%\subtitle{}
+\author [Д.\,И.~Пионтковский, И. \,К.~Козлов] %(optional, for multiple authors)
+{Д.\,И.~Пионтковский, И. \,К.~Козлов \\ {\footnotesize(\textit{ВШЭ})}}
+
+
+\date % [](optional)
+{9 апреля 2021}
+%\subject{Mathematics}
+
+
+
+
+
+
+
+
+\usepackage{hyperref}
+\hypersetup{unicode=true}
+
+
+
+\begin{document}
+
+%\includeonlyframes{}
+\frame{\titlepage}
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Литература}
+%----------------------------------------------------------
+
+
+\begin{thebibliography}{10}
+  \beamertemplatebookbibitems
+  \bibitem{Gantmacher} Шевцов Г.С.,
+    \newblock {\em  Линейная алгебра: теория и прикладные аспекты},
+     \newblock {Глава 10. Итерационные методы},
+  \end{thebibliography}
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+\section{Метод итераций.}
+
+\begin{frame}[plain]\frametitle{Метод итераций} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+
+Решение уравнения \[ x = P x + c\] {\color{blue} методом итераций}: \[ x^{(n+1)} = P x^{(n)} +c. \]  
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+
+
+
+\textbf{Утв 1.} Процесс сходится при любом начальном $x^{(0)}$ $\Leftrightarrow$ спектральный радиус $\rho(P) <1$.
+
+\vspace{5mm}
+
+
+\textbf{Утв. 2}  Верна оценка: \[ \left| x - x^{(k)}\right| \leq \frac{\left\|P\right\|^k}{1 - \left\|P\right\|} |x^{(1)}  - x^{(0)}|.\]
+Если $\left\| P\right\| < 1$, то метод итераций сходится.
+
+
+
+
+\vspace{5mm}
+
+Матричную норму можно брать любой.
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+Применим оценку \[ \left| x - x^{(k)}\right| \leq \frac{\left\|P\right\|^k}{1 - \left\|P\right\|} |x^{(1)}  - x^{(0)}|.\]
+
+\vspace{5mm}
+
+
+\begin{itemize}
+
+\item Если $x^{0} = 0$, то $x^{(1)} = c$ и \[ \left| x - x^{(k)}\right| \leq \frac{\left\|P\right\|^k}{1 - \left\|P\right\|} |c|.\]
+
+
+\vspace{5mm}
+
+\item Если $x^{(0)} = c$, то $x^{(1)} = Pc + c$ и \[ \left| x - x^{(k)}\right| \leq \frac{\left\|P\right\|^{k+1}}{1 - \left\|P\right\|} |x^{(0)}|.\]
+
+
+\end{itemize}
+
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+
+\textbf{Задача}. Методом итераций решить систему \[ \begin{cases} 10 x_1 + 2x_2 + x_3 =  10, \\ x_1 + 10  x_2 + 2 x_3 =  12, \\ x_1 + x_2 + 10 x_3 = 8. \end{cases} \] 
+
+
+\vspace{5mm}
+
+\textbf{Решение}. Переходим к системе: \[ \begin{cases} x_1 =1- 0,2x_2 -0,1 x_3, \\ x_2 = 1,2 - 0,1 x_1 -0,2 x_3, \\ x_3 = 0,8 - 0,1 x_1 -0,1 x_2. \end{cases}\] 
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+Матрица \[ P = \left( \begin{matrix} 0 & -0,2 & -0,1 \\ -0,1 & 0 & -0,2 \\ -0,1 & -0,1 & 0 \end{matrix} \right). \]
+
+\vspace{5mm}
+
+Заметим, что \[ \left\| P \right\|_1 = \max (0,2; \quad 0,3; \quad 0,3 ) = 0,3 < 1,\] поэтому метод итераций сойдётся.
+
+
+\vspace{5mm}
+
+Норму $\left\| P \right\|_1$ легко считать (сумма модулей по столбцам).
+
+
+\vspace{5mm}
+
+За начальное приближение можно взять $x^{(0)} = c$: \[ x_1^{(0)} = 1, \qquad x_2^{(0)} = 1,2, \qquad x_3^{(0)} = 0,8.\]
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+Решение \[x \approx x^{(5)} \approx (0,737; \quad 1,001; \quad 0,626)\] 
+
+\vspace{5mm}
+
+Оценка погрешности \[ \left| x - x^{(5)}\right| \leq \frac{\left\|P\right\|^{6}}{1 - \left\|P\right\|} \left|  x^{(0)}\right| = \frac{(0,3)^6}{0,7}3 \leq 0,001.  \] 
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+\section{Приведение к виду, удобному для итераций.}
+
+\begin{frame}[plain]\frametitle{Приведение к виду, удобному для итераций} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+\textbf{Задача}. Привести к виду, удобному для итераций \[ A x= b.\]
+
+\vspace{2mm}
+
+
+\textbf{Случай-1.} {\color{cyan} Пусть $A = A^T$ и есть диагональное преобладание}: \[ \left|a_{ii}\right| > \sum_{j \not i} \left| a_{ij} \right|. \] Диагональные элементы больше суммы модулей остальных элементов в своей строке.
+
+\vspace{5mm}
+
+Выражаем из $i$-того уровнения $x_i$: \[ \begin{cases} x_1 = \dots, \\ x_2 = \dots, \\ \dots \end{cases} \]
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+\textbf{Задача}. Привести к виду, удобному для итераций \[ A x= b.\]
+
+\vspace{2mm}
+
+
+\textbf{Случай-2.} {\color{cyan} Пусть $A = A^T$ и все собственные числа $\lambda_i > 0$}. 
+
+Берём \[ P = E - \tau A, \qquad \bar{b} = \tau b,\] где \[ \tau  = \frac{2}{\lambda_{\min} + \lambda_{\max}}.\]
+ 
+ \vspace{5mm}
+ 
+ Затем решаем методом итераций \[ x_{k+1} = P x_k  + \bar{b}.\]
+ 
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+
+\textbf{Случай-3.} {\color{cyan} Если $A \not = A^T$}, то переходим к системе \[ A^T A x = A^T b.\]
+
+\vspace{5mm}
+
+Далее поступаем так же, как и для симметричной матрицы.
+
+ 
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+На практике находить \[ \tau  = \frac{2}{\lambda_{\min} + \lambda_{\max}}\] иногда затруднительно.  Поэтому берут \[ \tau  = \frac{2}{\sigma},\] где $\sigma$ больше какой-нибудь из просто вычислимых матричных норм \[ \left| A\right\|_1 = \max_j \sum_i \left| a_{ij}\right|, \qquad \left| A\right\|_{\infty} = \max_i \sum_j \left| a_{ij}\right|. \]
+ 
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+\section{Метод Зейделя.}
+
+\begin{frame}[plain]\frametitle{Метод Зейделя} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+{\color{cyan} Метод Зейделя.}
+
+\vspace{5mm}
+
+Пусть мы решаем уравнение $Ax = y$. Разложим \[ (\mathrm{L} + \mathrm{D} )\vec{x} = -\mathrm{U} \, \vec{x} + \vec{b},\] где $D$ --- диагонаяльная, а $L$ и $U$ --- строго нижнетреугольная и верхнетреугольная матрицы. {\color{cyan} Итерационный процесс в методе Гаусса — Зейделя:}  \[ (\mathrm{L} + \mathrm{D} )\vec{x}^{(k+1)} = -\mathrm{U} \, \vec{x}^{(k)} + \vec{b}.\] 
+
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+По сути это тот же метод итераций:   \[ (\mathrm{L} + \mathrm{D} )\vec{x}^{k+1} = -\mathrm{U} \, \vec{x}^{k} + \vec{b}\]  эквивалентная   \[\vec{x}^{k+1} = (\mathrm{L} + \mathrm{D} )^{-1} \vec{b} - (\mathrm{L} + \mathrm{D} )^{-1} \mathrm{U} \, \vec{x}^{k}.\] 
+
+\vspace{5mm}
+
+Так что метод сходится, если \[{\displaystyle \left\|(\mathrm {L} +\mathrm {D} )^{-1}\,\mathrm {U} \right\| < 1}.\]
+ 
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+\section{Добавления. Другие примеры методы итераций.}
+
+\begin{frame}[plain]\frametitle{Другие примеры методы итераций} \tableofcontents[currentsection]\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+Пусть $A = A^T$. 
+
+\vspace{5mm}
+
+{\color{cyan} Методом итераций можно находить собственные значения $A$.}
+
+\vspace{5mm}
+
+Возьмём базис $e_i$ из собственных векторов \[ Ae_i = \lambda_i e_i, \qquad |\lambda_1| \geq |\lambda_2| \geq \dots.\] 
+
+\vspace{5mm}
+
+Тогда \[ A^k (e_1, \dots, e_n) =\left (\lambda_1^k e_1, \dots, \lambda_n^k e_n\right)= \lambda_1^k \cdot \left( e_1, \left(\frac{\lambda_2}{\lambda_1}\right)^k e_2, \dots, , \left(\frac{\lambda_n}{\lambda_1}\right)^k e_n \right).\] $\left(\frac{\lambda_j}{\lambda_1}\right)^k \to 0$, если $\left|\frac{\lambda_j}{\lambda_1}\right|<1$.
+
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+ 
+Берём \[ v_{k+1} = \frac{A v_k}{\left\| A v_k \right\|}.\] В пределе получаем собственный вектор \[ Av = \lambda v,\] после этого переходим к ортогональному дополнению \[ (w, v) = 0.\]
+ 
+ 
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+
+\textbf{Утверждение}. {\color{red} Градиент --- направление наибольшего роста функции. }
+
+\vspace{5mm}
+
+Дана функция $f(x^1, \dots, x^n): \mathbb{R}^n \to \mathbb{R}$. Её градиент: \[ \left( \frac{\partial f}{\partial x^1}, \dots,  \frac{\partial f}{\partial x^n} \right).\]
+
+\vspace{5mm}
+
+Производная по направлению $v$ (в нуле): \[ \frac{d}{dt} f(tv^1, \dots, tv^n) = \sum_{i=1}^n \frac{\partial f}{\partial x^i} v^i = (\operatorname{grad} f, v). \] Напомним, что скалярное произведение --- произведение длин на косинус угла между векторами: \[ (u, v) = |u| |v| \cos{\varphi}\] Наибольшее скалярное произведение --- если векторы сонаправлены.
+ 
+ 
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+{\color{red} Линейная регрессия.}
+
+\vspace{5mm}
+
+Даны векторы $x_i \in \mathbb{R}^n$ и предсказываемые значения $y_i$. Пусть мы хотим максимально точно приблизить \[ y_i = \left(  x_i, \omega \right).\]
+
+\vspace{5mm}
+
+\textbf{Вариант-1}. Точное решение (через псевдообратную матрицу) \[ \omega = X^{+} y.\]
+
+
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+\textbf{Вариант-2}. Градиентный спуск. 
+
+\vspace{5mm}
+
+Мы минимизируем функцию потерь: \[ L(\omega, X, y) = \frac{1}{n} \sum_i (y_i - \left( x_i, \omega \right))^2. \] 
+
+\vspace{5mm}
+
+Метод итераций: 
+
+\[ \omega \to \omega - \alpha \frac{\partial}{\partial \omega} L.\]
+
+\vspace{5mm}
+
+\textit{Аналогично для логистической регрессии.}
+
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+
+\textbf{Вариант-3}. Максимизация правдоподобия. \[y_i = (x_i, \omega) + \varepsilon,\] где шум $\varepsilon$ нормально распределён $N(0, \sigma^2)$, т.е. \[ p(y |x, \omega) = \frac{1}{\sqrt{2 \pi \sigma^2}} \operatorname{exp} \left( - \frac{(y-(x, \omega)^2}{2\sigma^2}\right).\]
+ 
+ 
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+%----------------------------------------------------------
+\begin{frame}[plain]\frametitle{Семинар 11}
+%----------------------------------------------------------
+
+
+Максимизация функции правдоподобия \[  Likelihood(y, X, \omega) = \prod_{i}  p(y_i |x_i, \omega) = \prod_{i} \frac{1}{\sqrt{2 \pi \sigma^2}} \operatorname{exp} \left( - \frac{(y_i-(x_i, \omega)^2)}{2\sigma^2}\right)\] эквивалентна методу наименьших квадратов \[ \min_{\omega} (y_i-(x_i, \omega)^2).\]  Это легко увидеть, взяв логарифм функции правдоподобия. 
+
+\vspace{5mm}
+
+\textit{Вероятностный подход/Байесовские методы.}
+ 
+%----------------------------------------------------------
+\end{frame}
+%----------------------------------------------------------
+
+
+
+
+
+
+\end{document}
